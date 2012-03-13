@@ -1,0 +1,155 @@
+#This file is the configuration file.
+#All lines starting with "#" is a comment line. And all lines starting with any blank character will be ignored.
+#What is more, only the starting two elements of a line (seperated with blank) are pared, all characters after them are ignored (as comments)
+#The first element is an configuration property, the second is an integer.
+
+
+##############################	Basic LTE System Configuration  #####################################
+sys_BW	20	system bandwidth is 20MHz
+CP_UL_type	0	Uplink CP type: 0 for normal£¬1 for extended
+CP_DL_type	0	Downlink CP type: 0 for normal£¬1 for extended
+UL_DL_config	1	TDD UL/DL configuration, e.g. 1 is DSUUDDSUUD
+N_RB_sc	12	Number of subcarriers that one RB occupies (12 for 15KHz subcarrier)
+N_cell_ID_1	0	cell ID group
+N_cell_ID_2	0	cell ID index
+port_num	4	system antenna ports configuration
+N_g 1  it's a index, interpreted as the index of list [1/6,1/2,1,2]
+CFI 2	Control Format Indicator
+CFI_sequence 3100331003
+PHICH_duration 1  0 for normal duration, 1 for extended duration
+special_subframe_config 5  Refer to table 4.2-1 of 36.211
+n_RA_PRBoffset	2	this is the prachFrequencyOffset
+PRACH_Configuration_Index	57
+Preamble_Format	4
+start_SFN	1	the SFN (System Frame Number) of the first frame
+##############################  Basic LTE System Configuration Ends.  ################################
+
+
+
+##############################  Parameters for Drawing  #####################################
+cell_width	7	width for one RE (resource element), in pixel
+cell_height	7	height for one RE, in pixel
+frame_num	1	total number of frames that will be drawn
+frame_interval	10	blank width between two frames, in pixel
+draw_offset_x		15	offset x for the whole lattice
+draw_offset_y		15	offset y for the whole lattice
+
+# all color parameters are listed below. each color setting is represented by (r,g,b,a), i.e. (red, green, blue, alpha)
+color_text_r	0
+color_text_b	0
+color_text_g	0
+color_text_alpha	255
+
+# line color within one RB
+color_line_RE_r	0
+color_line_RE_b	0
+color_line_RE_g	0
+color_line_RE_alpha	64
+
+color_line_DL_RE_r	0
+color_line_DL_RE_b	0
+color_line_DL_RE_g	160
+color_line_DL_RE_alpha	64
+
+color_line_UL_RE_r	0
+color_line_UL_RE_b	160
+color_line_UL_RE_g	0
+color_line_UL_RE_alpha	64
+
+color_line_S_RE_r	160
+color_line_S_RE_b	0
+color_line_S_RE_g	0
+color_line_S_RE_alpha	0
+
+# RB color type 1 (grey, for showing different RBs)
+color_brush1_RB_r	192
+color_brush1_RB_g	192
+color_brush1_RB_b	192
+color_brush1_RB_alpha	64
+
+# RB color type 2
+color_brush2_RB_r	255
+color_brush2_RB_g	255
+color_brush2_RB_b	255
+color_brush2_RB_alpha	64
+
+# default color for all REs
+color_brush_RE_r	255
+color_brush_RE_g	255
+color_brush_RE_b	255
+color_brush_RE_alpha	0
+
+# default color for all REs in Special subframe
+color_brush_S_RE_r	255
+color_brush_S_RE_g	255
+color_brush_S_RE_b	255
+color_brush_S_RE_alpha	0
+
+
+###########################################################
+# all color settings for all channels
+###########################################################
+# for PBCH
+color_brush_PBCH_r	0
+color_brush_PBCH_g	255
+color_brush_PBCH_b	0
+color_brush_PBCH_alpha	255
+
+# for Primary Synchronization Signal
+color_brush_PSS_r	0
+color_brush_PSS_g	0
+color_brush_PSS_b	255
+color_brush_PSS_alpha	255
+
+# for Secondary Synchronization Signal
+color_brush_SSS_r	255
+color_brush_SSS_g	128
+color_brush_SSS_b	128
+color_brush_SSS_alpha	255
+
+# for Cell Specific Reference Signal of AP (Antenna Port) 0 to 3
+color_brush_CSRS_AP0_r	255
+color_brush_CSRS_AP0_g	0
+color_brush_CSRS_AP0_b	0
+color_brush_CSRS_AP0_alpha	255
+color_brush_CSRS_AP1_r	255
+color_brush_CSRS_AP1_g	0
+color_brush_CSRS_AP1_b	0
+color_brush_CSRS_AP1_alpha	255
+color_brush_CSRS_AP2_r	255
+color_brush_CSRS_AP2_g	0
+color_brush_CSRS_AP2_b	0
+color_brush_CSRS_AP2_alpha	255
+color_brush_CSRS_AP3_r	255
+color_brush_CSRS_AP3_g	0
+color_brush_CSRS_AP3_b	0
+color_brush_CSRS_AP3_alpha	255
+color_brush_CSRS_r	255
+color_brush_CSRS_g	0
+color_brush_CSRS_b	0
+color_brush_CSRS_alpha	255
+
+# for Physical Control Format Indicator Channel
+color_brush_PCFICH_r	128
+color_brush_PCFICH_g	255
+color_brush_PCFICH_b	128
+color_brush_PCFICH_alpha	255
+
+# for Physical HARQ Indicator Channel
+color_brush_PHICH_r	0
+color_brush_PHICH_g	0
+color_brush_PHICH_b	0
+color_brush_PHICH_alpha	255
+
+# for Physical Downlink Control Channel
+color_brush_PDCCH_r	0
+color_brush_PDCCH_g	128
+color_brush_PDCCH_b	255
+color_brush_PDCCH_alpha	255
+
+# for Physical Random Access Channel
+color_brush_PRACH_r	128
+color_brush_PRACH_g	0
+color_brush_PRACH_b	255
+color_brush_PRACH_alpha	128
+##############################  Parameters for Drawing Ends.  ###############################

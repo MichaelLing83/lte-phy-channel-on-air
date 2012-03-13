@@ -1,0 +1,237 @@
+Whole program ended after  0.0  sec.
+         1291343 function calls in 18.154 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.126    0.126   18.154   18.154 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 BmpImagePlugin.py:173(DibImageFile)
+        1    0.002    0.002    0.002    0.002 BmpImagePlugin.py:27(<module>)
+        1    0.000    0.000    0.000    0.000 BmpImagePlugin.py:55(_accept)
+        1    0.000    0.000    0.000    0.000 BmpImagePlugin.py:61(BmpImageFile)
+        1    0.003    0.003    0.003    0.003 GifImagePlugin.py:28(<module>)
+        1    0.000    0.000    0.000    0.000 GifImagePlugin.py:47(_accept)
+        1    0.000    0.000    0.000    0.000 GifImagePlugin.py:54(GifImageFile)
+        1    0.000    0.000    0.635    0.635 Image.py:1396(save)
+        1    0.000    0.000    0.039    0.039 Image.py:1752(new)
+        1    0.000    0.000    0.019    0.019 Image.py:1945(open)
+        5    0.000    0.000    0.000    0.000 Image.py:2084(register_open)
+        3    0.000    0.000    0.000    0.000 Image.py:2096(register_mime)
+        5    0.000    0.000    0.000    0.000 Image.py:2106(register_save)
+       10    0.000    0.000    0.000    0.000 Image.py:2116(register_extension)
+        2    0.012    0.006    0.018    0.009 Image.py:292(preinit)
+        1    0.000    0.000    0.000    0.000 Image.py:373(_getdecoder)
+        1    0.000    0.000    0.000    0.000 Image.py:389(_getencoder)
+        3    0.000    0.000    0.000    0.000 Image.py:451(__init__)
+        1    0.000    0.000    0.000    0.000 Image.py:462(_new)
+        4    0.000    0.000    0.000    0.000 Image.py:505(__getattr__)
+        5    0.000    0.000    0.000    0.000 Image.py:608(load)
+   163375    0.805    0.000    1.398    0.000 Image.py:85(isStringType)
+        2    0.000    0.000    0.000    0.000 Image.py:94(isTupleType)
+       15    0.003    0.000    0.028    0.002 ImageDraw.py:127(getfont)
+   163370    0.960    0.000    2.705    0.000 ImageDraw.py:134(_getink)
+    14546    0.081    0.000    0.404    0.000 ImageDraw.py:197(line)
+   148811    0.864    0.000    3.717    0.000 ImageDraw.py:245(rectangle)
+       13    0.000    0.000    0.001    0.000 ImageDraw.py:255(text)
+        1    0.000    0.000    0.000    0.000 ImageDraw.py:290(Draw)
+        1    0.000    0.000    0.000    0.000 ImageDraw.py:58(__init__)
+        1    0.000    0.000    0.000    0.000 ImageFile.py:124(load)
+        1    0.000    0.000    0.000    0.000 ImageFile.py:227(load_prepare)
+        1    0.000    0.000    0.000    0.000 ImageFile.py:254(StubImageFile)
+        1    0.000    0.000    0.000    0.000 ImageFile.py:283(_ParserFile)
+        1    0.000    0.000    0.000    0.000 ImageFile.py:30(<module>)
+        1    0.000    0.000    0.000    0.000 ImageFile.py:330(Parser)
+        1    0.000    0.000    0.633    0.633 ImageFile.py:466(_save)
+        1    0.000    0.000    0.000    0.000 ImageFile.py:516(_safe_read)
+        1    0.000    0.000    0.000    0.000 ImageFile.py:69(ImageFile)
+        1    0.000    0.000    0.000    0.000 ImageFile.py:72(__init__)
+        1    0.000    0.000    0.000    0.000 ImageFont.py:129(FreeTypeFont)
+        1    0.000    0.000    0.000    0.000 ImageFont.py:163(TransposedFont)
+        1    0.001    0.001    0.021    0.021 ImageFont.py:254(load_default)
+        1    0.004    0.004    0.004    0.004 ImageFont.py:28(<module>)
+        1    0.000    0.000    0.000    0.000 ImageFont.py:31(_imagingft_not_installed)
+        1    0.000    0.000    0.000    0.000 ImageFont.py:74(ImageFont)
+        1    0.000    0.000    0.000    0.000 ImageFont.py:97(_load_pilfont_data)
+        1    0.000    0.000    0.000    0.000 JpegImagePlugin.py:261(_accept)
+        1    0.000    0.000    0.000    0.000 JpegImagePlugin.py:267(JpegImageFile)
+        1    0.000    0.000    0.000    0.000 JpegImagePlugin.py:35(<module>)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:103(close)
+        2    0.000    0.000    0.000    0.000 PngImagePlugin.py:110(call)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:117(crc)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:151(PngInfo)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:169(PngStream)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:171(__init__)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:206(chunk_IHDR)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:221(chunk_IDAT)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:302(_accept)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:308(PngImageFile)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:313(_open)
+        1    0.000    0.000    0.001    0.001 PngImagePlugin.py:34(<module>)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:375(load_prepare)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:383(load_read)
+        2    0.000    0.000    0.000    0.000 PngImagePlugin.py:41(i16)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:410(load_end)
+       10    0.000    0.000    0.000    0.000 PngImagePlugin.py:420(o16)
+        7    0.000    0.000    0.000    0.000 PngImagePlugin.py:423(o32)
+        4    0.000    0.000    0.000    0.000 PngImagePlugin.py:43(i32)
+        5    0.000    0.000    0.001    0.000 PngImagePlugin.py:443(putchunk)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:453(_idat)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:456(__init__)
+        3    0.000    0.000    0.001    0.000 PngImagePlugin.py:459(write)
+        1    0.000    0.000    0.633    0.633 PngImagePlugin.py:462(_save)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:75(ChunkStream)
+        1    0.000    0.000    0.000    0.000 PngImagePlugin.py:77(__init__)
+        2    0.000    0.000    0.000    0.000 PngImagePlugin.py:85(read)
+        1    0.000    0.000    0.000    0.000 PpmImagePlugin.py:18(<module>)
+        1    0.000    0.000    0.000    0.000 PpmImagePlugin.py:40(_accept)
+        1    0.000    0.000    0.000    0.000 PpmImagePlugin.py:46(PpmImageFile)
+        2    0.000    0.000    0.000    0.000 StringIO.py:114(tell)
+        9    0.000    0.000    0.000    0.000 StringIO.py:119(read)
+        3    0.000    0.000    0.000    0.000 StringIO.py:139(readline)
+       16    0.000    0.000    0.000    0.000 StringIO.py:38(_complain_ifclosed)
+        2    0.000    0.000    0.000    0.000 StringIO.py:54(__init__)
+        2    0.000    0.000    0.000    0.000 StringIO.py:95(seek)
+        1    0.001    0.001    0.001    0.001 base64.py:3(<module>)
+        2    0.000    0.000    0.000    0.000 base64.py:319(decodestring)
+        1    0.000    0.000    0.000    0.000 genericpath.py:85(_splitext)
+        1    0.000    0.000    0.000    0.000 ntpath.py:189(splitext)
+        1    0.000    0.000    0.638    0.638 profile.py:1079(set_PHICH_REs)
+        1    0.016    0.016    0.638    0.638 profile.py:1085(get_PHICH_REs)
+    12281    0.057    0.000    0.078    0.000 profile.py:11(__add__)
+        1    0.000    0.000    0.000    0.000 profile.py:1190(get_PSS_REs)
+        1    0.000    0.000    0.001    0.001 profile.py:1203(set_PSS_REs)
+        1    0.000    0.000    0.001    0.001 profile.py:1211(get_SSS_REs)
+        1    0.000    0.000    0.001    0.001 profile.py:1227(set_SSS_REs)
+        1    0.000    0.000   11.188   11.188 profile.py:1235(set_DL_PHY)
+       16    0.000    0.000    0.000    0.000 profile.py:1287(get_REG)
+        1    0.000    0.000    0.026    0.026 profile.py:1330(get_REG_indice)
+       30    0.015    0.000    0.026    0.001 profile.py:1340(get_REG_indice_in_symbol)
+      870    0.003    0.000    0.003    0.000 profile.py:1349(how_many_RE_per_REG)
+      672    0.003    0.000    0.004    0.000 profile.py:1437(RE_to_REG_index)
+      168    0.612    0.004    0.615    0.004 profile.py:1442(REG_index_to_REs)
+        1    0.372    0.372    0.374    0.374 profile.py:1453(set_RB_background)
+        3    0.000    0.000    0.000    0.000 profile.py:1491(ts_to_pixel)
+        1    0.000    0.000    0.000    0.000 profile.py:1495(init_PHY_Common)
+        1    0.000    0.000    0.000    0.000 profile.py:1506(init_16QAM)
+        1    0.000    0.000    0.000    0.000 profile.py:1530(init_64QAM)
+        1    0.236    0.236    0.293    0.293 profile.py:1546(_init_re_size_lattice)
+        1    0.128    0.128    0.140    0.140 profile.py:1611(_init_re_lattice)
+        1    0.094    0.094    0.106    0.106 profile.py:1620(_init_re_usage_lattice)
+        1    0.000    0.000    0.000    0.000 profile.py:1701(init_BPSK)
+        1    0.000    0.000    0.000    0.000 profile.py:1711(init_QPSK)
+     9600    0.020    0.000    0.020    0.000 profile.py:1736(get_DwPTS_symbol_num)
+     2402    0.004    0.000    0.004    0.000 profile.py:1743(get_DwPTS_Ts)
+     2401    0.012    0.000    0.022    0.000 profile.py:1750(get_GAP_Ts)
+     2400    0.004    0.000    0.004    0.000 profile.py:1753(get_UpPTS_symbol_num)
+     2402    0.006    0.000    0.006    0.000 profile.py:1760(get_UpPTS_Ts)
+        1    0.000    0.000    0.003    0.003 profile.py:1791(set_PRACH_REs)
+        1    0.002    0.002    0.003    0.003 profile.py:1796(get_PRACH_REs)
+        1    0.000    0.000    0.003    0.003 profile.py:1849(set_UL_PHY)
+        1    0.000    0.000    5.920    5.920 profile.py:1860(__init__)
+        1    0.000    0.000    5.880    5.880 profile.py:1892(draw)
+        1    0.158    0.158    0.663    0.663 profile.py:1916(_draw_lattice)
+        1    0.830    0.830    4.552    4.552 profile.py:1968(_draw_REs)
+        1    0.001    0.001    0.040    0.040 profile.py:1988(initialize_drawer)
+        1    0.000    0.000    0.030    0.030 profile.py:2020(_draw_legend)
+        1    0.000    0.000    0.000    0.000 profile.py:2059(_draw_mark)
+        1    0.000    0.000   18.027   18.027 profile.py:2078(main)
+        1    0.000    0.000    0.003    0.003 profile.py:29(__init__)
+        1    0.000    0.000    0.000    0.000 profile.py:39(get_config)
+        1    0.000    0.000    0.000    0.000 profile.py:42(validate_config)
+        1    0.000    0.000    0.000    0.000 profile.py:50(_get_RA_PREAMBLE_MAPPING)
+        1    0.002    0.002    0.003    0.003 profile.py:560(_get_base_config)
+        1    0.000    0.000    0.003    0.003 profile.py:572(_get_config)
+        1    0.000    0.000    0.000    0.000 profile.py:661(__init__)
+        1    0.000    0.000   12.104   12.104 profile.py:672(__init__)
+        1    0.000    0.000    0.000    0.000 profile.py:701(process_config)
+       12    0.087    0.007    0.134    0.011 profile.py:788(get_CSRS_AP)
+    24563    0.044    0.000    0.044    0.000 profile.py:8(__init__)
+        1    0.007    0.007    0.094    0.094 profile.py:843(set_CSRS_REs)
+        1    0.192    0.192    0.239    0.239 profile.py:854(get_PBCH_REs)
+        1    0.001    0.001    0.240    0.240 profile.py:869(set_PBCH_REs)
+        1    0.062    0.062    0.063    0.063 profile.py:884(get_PCFICH_REs)
+        1    0.000    0.000    0.063    0.063 profile.py:905(set_PCFICH_REs)
+        1    0.004    0.004    0.105    0.105 profile.py:911(set_PDCCH_REs)
+        1    0.101    0.101    0.101    0.101 profile.py:916(get_PDCCH_REs)
+        1    0.000    0.000    9.924    9.924 profile.py:934(init_REG_dict)
+        6    9.904    1.651    9.924    1.654 profile.py:946(get_REGs_for_subframe)
+       24    0.055    0.002    0.097    0.004 profile.py:986(get_all_REG_in_symbol)
+        1    0.000    0.000    0.000    0.000 re.py:188(compile)
+        1    0.000    0.000    0.000    0.000 re.py:228(_compile)
+        5    0.000    0.000    0.000    0.000 sre_compile.py:178(_compile_charset)
+        5    0.000    0.000    0.000    0.000 sre_compile.py:207(_optimize_charset)
+        1    0.000    0.000    0.000    0.000 sre_compile.py:32(_compile)
+        1    0.000    0.000    0.000    0.000 sre_compile.py:361(_compile_info)
+        2    0.000    0.000    0.000    0.000 sre_compile.py:474(isstring)
+        1    0.000    0.000    0.000    0.000 sre_compile.py:480(_code)
+        1    0.000    0.000    0.000    0.000 sre_compile.py:495(compile)
+        4    0.000    0.000    0.000    0.000 sre_parse.py:138(append)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:140(getwidth)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:178(__init__)
+        7    0.000    0.000    0.000    0.000 sre_parse.py:182(__next)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:195(match)
+        6    0.000    0.000    0.000    0.000 sre_parse.py:201(get)
+        4    0.000    0.000    0.000    0.000 sre_parse.py:257(_escape)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:301(_parse_sub)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:379(_parse)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:663(parse)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:67(__init__)
+        1    0.000    0.000    0.000    0.000 sre_parse.py:90(__init__)
+       11    0.000    0.000    0.000    0.000 string.py:220(lower)
+       24    0.000    0.000    0.000    0.000 string.py:229(upper)
+        1    0.000    0.000    0.000    0.000 string.py:281(split)
+        5    0.000    0.000    0.000    0.000 string.py:308(join)
+       12    0.000    0.000    0.000    0.000 {_imaging.crc32}
+        1    0.000    0.000    0.000    0.000 {_imaging.draw}
+        1    0.039    0.039    0.039    0.039 {_imaging.fill}
+        1    0.000    0.000    0.000    0.000 {_imaging.font}
+        1    0.000    0.000    0.000    0.000 {_imaging.new}
+        1    0.000    0.000    0.000    0.000 {_sre.compile}
+        2    0.000    0.000    0.000    0.000 {apply}
+        2    0.000    0.000    0.000    0.000 {binascii.a2b_base64}
+        1    0.000    0.000    0.000    0.000 {built-in method decode}
+       13    0.000    0.000    0.000    0.000 {built-in method draw_bitmap}
+   163371    0.348    0.000    0.348    0.000 {built-in method draw_ink}
+    14546    0.088    0.000    0.088    0.000 {built-in method draw_lines}
+   148811    0.383    0.000    0.383    0.000 {built-in method draw_rectangle}
+        3    0.632    0.211    0.632    0.211 {built-in method encode}
+       13    0.000    0.000    0.000    0.000 {built-in method getmask}
+        2    0.000    0.000    0.000    0.000 {built-in method getsize}
+        4    0.000    0.000    0.000    0.000 {built-in method pixel_access}
+        1    0.000    0.000    0.000    0.000 {built-in method setimage}
+      333    0.001    0.000    0.001    0.000 {chr}
+        4    0.000    0.000    0.000    0.000 {getattr}
+        3    0.000    0.000    0.000    0.000 {hasattr}
+   326755    0.593    0.000    0.593    0.000 {isinstance}
+      742    0.001    0.000    0.001    0.000 {len}
+       16    0.000    0.000    0.000    0.000 {math.floor}
+       14    0.000    0.000    0.000    0.000 {math.sqrt}
+        4    0.000    0.000    0.000    0.000 {max}
+    74938    0.108    0.000    0.108    0.000 {method 'append' of 'list' objects}
+        2    0.001    0.000    0.001    0.000 {method 'close' of 'file' objects}
+        1    0.000    0.000    0.000    0.000 {method 'copy' of 'dict' objects}
+        6    0.000    0.000    0.000    0.000 {method 'count' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        9    0.000    0.000    0.000    0.000 {method 'find' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {method 'flush' of 'file' objects}
+        8    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+      424    0.001    0.000    0.001    0.000 {method 'has_key' of 'dict' objects}
+        3    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        5    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
+      675    0.024    0.000    0.024    0.000 {method 'keys' of 'dict' objects}
+       11    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 {method 'match' of '_sre.SRE_Pattern' objects}
+       84    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
+        3    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 {method 'sort' of 'list' objects}
+      108    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+       24    0.000    0.000    0.000    0.000 {method 'upper' of 'str' objects}
+       16    0.001    0.000    0.001    0.000 {method 'write' of 'file' objects}
+     5934    0.014    0.000    0.014    0.000 {min}
+        2    0.002    0.001    0.002    0.001 {open}
+       24    0.000    0.000    0.000    0.000 {ord}
+     5737    0.016    0.000    0.016    0.000 {range}
+      375    0.003    0.000    0.003    0.000 {round}
+        6    0.000    0.000    0.000    0.000 {time.time}
+
+
