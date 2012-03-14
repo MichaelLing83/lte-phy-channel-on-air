@@ -482,14 +482,11 @@ def PSS_baseband_detect(baseband_IQ_signal, local_t, to_draw=False):
     return the index of the start of PSS in given baseband IQ signal sequence
     Note: for this function, the parameter t must be of the scale of second, and should not be decimated.
     '''
-    #print local_t[-1]*1000
+    baseband_IQ_signal_conj = conjugate(baseband_IQ_signal)
     baseband_IQ_signal_I = real(baseband_IQ_signal)
     baseband_IQ_signal_Q = imag(baseband_IQ_signal)
     
-    #pss_Uu_signal_downconverted_list = [0]*3
-    
-    #pss_Uu_signal_downconverted_I_list = [0]*3
-    #pss_Uu_signal_downconverted_Q_list = [0]*3
+    pss_baseband_IQ_list = [0] * 3
     pss_baseband_I_list = [0]*3
     pss_baseband_Q_list = [0]*3
     
@@ -499,12 +496,9 @@ def PSS_baseband_detect(baseband_IQ_signal, local_t, to_draw=False):
         
         pss_seq = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
         pss_baseband_IQ = s_p_l(pss_seq, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_IQ_list[N_ID_2] = pss_baseband_IQ[-1*N:]
         pss_baseband_I_list[N_ID_2] = real(pss_baseband_IQ[-1*N:])
         pss_baseband_Q_list[N_ID_2] = imag(pss_baseband_IQ[-1*N:])
-        #pss_uu_sig = downlink_modulate(pss_baseband_IQ, t, f_0)
-        #pss_received_IQ = downlink_downconvert(pss_uu_sig, t, f_0)[-1*N:]
-        #pss_Uu_signal_downconverted_I_list[N_ID_2] = real(pss_received_IQ)
-        #pss_Uu_signal_downconverted_Q_list[N_ID_2] = imag(pss_received_IQ)
     
     legend_list = list()
     corr_list = [0]*3
@@ -519,7 +513,8 @@ def PSS_baseband_detect(baseband_IQ_signal, local_t, to_draw=False):
     for offset in offset_list:
         for N_ID in N_ID_2_tuple:
             corr_list[N_ID][offset] = correlate(baseband_IQ_signal_Q[offset:offset+N], pss_baseband_Q_list[N_ID])[0]
-            #corr_list[N_ID][offset] = abs(correlate(pss_baseband_I_list[N_ID][offset:offset+N], pss_Uu_signal_downconverted_I_list[N_ID])[0])
+            #corr_list[N_ID][offset] = abs(correlate(baseband_IQ_signal_conj[offset:offset+N], pss_baseband_IQ_list[N_ID])[0])
+            #corr_list[N_ID][offset] = abs(correlate(baseband_IQ_signal_conj[offset:offset+N], baseband_IQ_signal[144:144+N])[0])
     n_ID_2, X, Y = -1, 0, 0
     for N_ID_2 in N_ID_2_tuple:
         x, y = find_max(corr_list[N_ID_2])
@@ -537,10 +532,8 @@ def PSS_baseband_detect(baseband_IQ_signal, local_t, to_draw=False):
                 
     if to_draw:
         for N_ID_2 in N_ID_2_tuple:
-            #print len(local_t[:-1*(N-1)]), len(corr_list[N_ID_2])
             plt.plot(1000*local_t[:-1*(N-1)], corr_list[N_ID_2], marker='+', linestyle='-')
             legend_list.append( 'N_ID_2=%s'%N_ID_2 )
-            #x, y = max_dict[(p,q)]
         plt.annotate('Highest peak with N_ID_2=%s: %4.4s @start_index=%s'%(n_ID_2,Y,X), xy=(1000*t[X], Y), arrowprops=dict(facecolor='black', shrink=0.15), textcoords='offset points', xytext=(-20, y_offsets[N_ID_2]))
         plt.title('PSS baseband detect')
         plt.legend(legend_list)
@@ -548,7 +541,6 @@ def PSS_baseband_detect(baseband_IQ_signal, local_t, to_draw=False):
         plt.ylabel("Correlation")
         max_t = 1000*local_t[:-1*(N-1)][-1]
         min_t = 1000*local_t[0]
-        #print local_t[-1]*1000
         plt.axis([min_t-max_t*0.01, min(1000*local_t[-1], max_t*1.3), -0.1*Y, 1.1*Y])
         plt.show()
     
@@ -567,6 +559,7 @@ def test_PSS_detect_in_baseband_IQ():
         long_t = arange(0, 2*(N_CP_l+N)*T_s, T_s)
         
         PSS_baseband_detect(received_baseband_IQ, long_t, to_draw=True)
+        #PSS_baseband_detect(pss_received_IQ, t, to_draw=True)
 #@+node:michael.20120305092148.1303: *3* 6.11.1.1 seq gen
 def pss_d(n, N_ID_2):
     u = (25, 29, 34)[N_ID_2]
@@ -1233,7 +1226,7 @@ def z_fft_of_ZC():
 
 #@-others
 
-test_enabling_bits = 0b00010000000
+test_enabling_bits = 0b10000000000
 
 # 01. PSS spectrum before OFDM generation
 if test_enabling_bits & (1<<0):
