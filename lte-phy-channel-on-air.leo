@@ -17,18 +17,18 @@
 <v t="michael.20120305092148.1304"><vh>5.07.2 Preamble seq gen</vh></v>
 <v t="michael.20120305092148.1278"><vh>6.02.4 REGs</vh></v>
 <v t="michael.20120305092148.1290"><vh>6.09 PHICH</vh></v>
-<v t="michael.20120305092148.1280"><vh>6.10 RS</vh>
+<v t="michael.20120305092148.1280" a="E"><vh>6.10 RS</vh>
 <v t="michael.20120305092148.1281" a="E"><vh>6.10.1 CSRS</vh>
 <v t="michael.20120305092148.1285"><vh>6.10.1.1 Seq gen</vh></v>
 <v t="michael.20120305092148.1279"><vh>6.10.1.2 Mapping to REs</vh></v>
 </v>
 </v>
-<v t="michael.20120305092148.1301" a="E"><vh>6.11 Sync signals</vh>
+<v t="michael.20120305092148.1301"><vh>6.11 Sync signals</vh>
 <v t="michael.20120305092148.1302"><vh>6.11.1 PSS</vh>
 <v t="michael.20120305092148.1303"><vh>6.11.1.1 seq gen</vh></v>
 <v t="michael.20120305092148.1305"><vh>6.11.1.2 mapping to REs</vh></v>
 </v>
-<v t="michael.20120312091134.1403" a="E"><vh>6.11.2 SSS</vh>
+<v t="michael.20120312091134.1403"><vh>6.11.2 SSS</vh>
 <v t="michael.20120312091134.1404"><vh>6.11.2.1 Sequence generation</vh></v>
 <v t="Michael.20120314113327.1416"><vh>6.11.2.2 Mapping to REs</vh></v>
 </v>
@@ -36,7 +36,7 @@
 <v t="michael.20120305092148.1293"><vh>6.12 OFDM baseband signal gen</vh></v>
 <v t="michael.20120305092148.1296"><vh>6.13 Modulation&amp;upconversion</vh></v>
 </v>
-<v t="michael.20120305092148.1294"><vh>7 Generic functions</vh>
+<v t="michael.20120305092148.1294" a="E"><vh>7 Generic functions</vh>
 <v t="michael.20120305092148.1283"><vh>7.2 Pseudo-random seq gen</vh></v>
 </v>
 </v>
@@ -52,17 +52,18 @@
 <v t="michael.20120309091906.1377"><vh>souce code</vh></v>
 <v t="michael.20120309091906.1378"><vh>@thin ./test_files/low_pass_filter.py</vh></v>
 </v>
-<v t="michael.20120305092148.1307"><vh>OFDM depiction</vh>
-<v t="michael.20120305092148.1308"><vh>source_code</vh>
-<v t="michael.20120305092148.1310" a="E"><vh>General OFDM</vh>
+<v t="michael.20120305092148.1307" a="E"><vh>OFDM basic</vh>
+<v t="michael.20120305092148.1310" a="E"><vh>source</vh>
+<v t="michael.20120315195140.1455"><vh>01. OFDM baseband signal generation</vh></v>
 <v t="michael.20120305092148.1293"></v>
 <v t="michael.20120305092148.1296"></v>
 <v t="michael.20120305092148.1292"></v>
 </v>
-</v>
+<v t="michael.20120315195140.1454"
+expanded="michael.20120305092148.1310,"><vh>@thin ./Simulation/OFDM_basic/ofdm_basic.py</vh></v>
 </v>
 <v t="michael.20120309091906.1388"><vh>Plot methods</vh></v>
-<v t="michael.20120305092148.1317" a="E"><vh>PSS gen &amp; detect</vh>
+<v t="michael.20120305092148.1317"><vh>PSS gen &amp; detect</vh>
 <v t="michael.20120305092148.1319"
 expanded="michael.20120305092148.1318,"><vh>@thin ./Simulation/PSS/PSS_gen_detect.py</vh></v>
 <v t="michael.20120305092148.1318" a="E"><vh>source code</vh>
@@ -102,7 +103,7 @@ expanded="michael.20120305092148.1318,"><vh>@thin ./Simulation/PSS/PSS_gen_detec
 </v>
 </v>
 </v>
-<v t="Michael.20120314113327.1412" a="E"><vh>SSS gen &amp; detect</vh>
+<v t="Michael.20120314113327.1412"><vh>SSS gen &amp; detect</vh>
 <v t="Michael.20120314113327.1413" a="E"><vh>source</vh>
 <v t="Michael.20120314113327.1415"><vh>01. SSS sequence generation</vh></v>
 <v t="Michael.20120314113327.1417"><vh>02. SSS baseband IQ time domain signal</vh></v>
@@ -120,6 +121,22 @@ expanded="michael.20120305092148.1318,"><vh>@thin ./Simulation/PSS/PSS_gen_detec
 </v>
 <v t="Michael.20120314113327.1414"
 expanded="Michael.20120314113327.1413,"><vh>@thin ./Simulation/SSS/sss_gen_detect.py</vh></v>
+</v>
+<v t="Michael.20120315095133.1438" a="E"><vh>CSRS gen &amp; channel estimation</vh>
+<v t="Michael.20120315095133.1439" a="E"><vh>source</vh>
+<v t="Michael.20120315095133.1442"><vh>01. CSRS baseband IQ time domain signal</vh></v>
+<v t="Michael.20120315095133.1443"><vh>02. CSRS baseband IQ spectrum</vh></v>
+<v t="Michael.20120315095133.1444"><vh>03. CSRS Uu signal</vh></v>
+<v t="Michael.20120315095133.1445"><vh>04. CSRS received IQ</vh></v>
+<v t="Michael.20120315095133.1446"><vh>05. CSRS channel estimation in one symbol</vh></v>
+<v t="michael.20120305092148.1285"></v>
+<v t="michael.20120305092148.1279"></v>
+<v t="michael.20120305092148.1293"></v>
+<v t="michael.20120305092148.1296"></v>
+<v t="michael.20120305092148.1283"></v>
+</v>
+<v t="Michael.20120315095133.1440"
+expanded="Michael.20120315095133.1439,"><vh>@thin ./Simulation/CSRS/csrs_gen_channel_estimation.py</vh></v>
 </v>
 <v t="michael.20120305092148.1312"><vh>Zadoff-Chu seq</vh>
 <v t="michael.20120305092148.1313"><vh>source_code</vh>
@@ -405,6 +422,210 @@ if test_enabling_bits &amp; (1&lt;&lt;8):
     plt.ylabel('Spectrum magnitude')
     plt.legend(legend_list)
     plt.show()
+</t>
+<t tx="Michael.20120315095133.1438"></t>
+<t tx="Michael.20120315095133.1439">
+from scipy.signal import *
+from numpy import *
+import matplotlib.pyplot as plt
+
+# time scale is in 1 s
+T_s = 1.0/30720/1000 # in s
+
+# configuration for CSRS
+n_s = 0
+l = 0
+antenna_port = 0
+N_DL_RB = 110
+N_maxDL_RB = N_DL_RB
+N_RB_sc = 12
+N_DL_CP = 0 # normal DL CP
+DL_CP_type = 0
+N_DL_symb = 7
+N_ID_2_tuple = (0,1,2)
+delta_f = 15000
+subframe = 0
+N_cell_ID = 0
+f_0 = (2620+0.1*(2620-2750))*1000*1000  # in Hz
+
+if N_DL_CP==0 and delta_f==15000:
+    if l==0:
+        N_CP_l = 160
+    else:
+        N_CP_l = 144
+elif N_DL_CP==1:    # extended CP
+    if delta_f==15000:
+        N_CP_l = 512
+    else:   # delta_f == 7500
+        N_CP_l = 1024
+if delta_f==15000:
+    N = 2048
+else:   # delta_f == 7500
+    N = 4096
+
+t = arange(0, (N_CP_l+N)*T_s, T_s)
+
+def find_max( a_list ):
+    m = max(a_list)
+    for i in arange(len(a_list)):
+        if a_list[i] == m:
+            return (i, m)
+
+def find_min( a_array ):
+    x, y = 0, 0
+    for i in arange(len(a_array)):
+        if a_array[i] &lt; y:
+            x, y = i, a_array[i]
+    return (x,y)
+
+def find_abs_max( a_array ):
+    m = max(abs(a_array))
+    for i in arange(len(a_array)):
+        if abs(a_array[i]) == m:
+            return (i, m)
+
+            
+@others
+
+test_enabling_bits = 0b10000
+
+# 01. CSRS baseband IQ time domain signal
+if test_enabling_bits &amp; (1&lt;&lt;0):
+    csrs_baseband_IQ_time_domain_signal()
+
+# 02. CSRS baseband IQ spectrum
+if test_enabling_bits &amp; (1&lt;&lt;1):
+    csrs_baseband_IQ_spectrum()
+
+# 03. CSRS Uu signal
+if test_enabling_bits &amp; (1&lt;&lt;2):
+    CSRS_signal_Uu()
+
+# 04. CSRS received IQ
+if test_enabling_bits &amp; (1&lt;&lt;3):
+    CSRS_received_IQ()
+
+# 05. CSRS channel estimation in one symbol
+if test_enabling_bits &amp; (1&lt;&lt;4):
+    test_csrs_channel_estimation_in_one_symbol()
+</t>
+<t tx="Michael.20120315095133.1442">def csrs_baseband_IQ_time_domain_signal():
+    
+    csrs_re_array = get_CSRS_in_symbol(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type)
+    csrs_baseband_IQ = s_p_l(csrs_re_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+    
+    subplot_pos_tupe = (131,132,133)
+    title_tuple = ('CSRS baseband IQ OFDM magnitude','CSRS baseband IQ OFDM signal real part','CSRS baseband IQ OFDM signal imag part')
+    y_label_tuple = ('IQ Magnitude', 'I part', 'Q part')
+    func_tuple = (abs, real, imag)
+    legend_list = list()
+    for i in (0,1,2):
+        plt.subplot(subplot_pos_tupe[i])
+        plt.title(title_tuple[i])
+        plt.plot(t*1000, func_tuple[i](csrs_baseband_IQ))
+        legend_list.append( ('antenna_port=%s'%(antenna_port), ))
+        plt.xlabel('Time (ms)')
+        plt.ylabel(y_label_tuple[i])
+        #plt.axis([-0.01, 0.075, 0, 15])
+        #plt.legend( ('N_ID_cell=%s'%N_cell_ID,) )
+            
+    plt.show()
+    
+</t>
+<t tx="Michael.20120315095133.1443">def csrs_baseband_IQ_spectrum(to_draw=True):
+    
+    csrs_re_array = get_CSRS_in_symbol(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type)
+    csrs_baseband_IQ = s_p_l(csrs_re_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)[-1*N:]
+    csrs_baseband_IQ_fft = fft.fft(csrs_baseband_IQ, N)
+    
+    if to_draw:
+        legend_list = list()
+        plt.title('CSRS baseband IQ spectrum')
+        legend_list.append( 'Spectrum magnitude' )
+        plt.plot(abs(csrs_baseband_IQ_fft), linestyle='-')
+        plt.xlabel('n (FFT index)')
+        plt.ylabel('Spectrum magnitude')
+        plt.legend(legend_list)
+        plt.show()
+    
+    return csrs_baseband_IQ_fft
+</t>
+<t tx="Michael.20120315095133.1444">def CSRS_signal_Uu_ref(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type):
+    
+    csrs_re_array = get_CSRS_in_symbol(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type)
+    csrs_baseband_IQ = s_p_l(csrs_re_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+    csrs_Uu_signal = downlink_modulate(csrs_baseband_IQ, t, f_0)
+    
+    legend_list = list()
+    plt.plot(t*1000, csrs_Uu_signal)
+    legend_list.append('CSRS Uu signal')
+    plt.title('CSRS Uu signal')
+    plt.xlabel('Time (ms)')
+    plt.ylabel('Signal level')
+    plt.legend(legend_list)
+    #plt.axis( [-0.01, 0.075, -0.1, 14] )
+    plt.show()
+    #plt.savefig('PSS_signal_Uu_for_N_ID_2=%s.png'%N_ID_2, dpi=300)
+
+def CSRS_signal_Uu():
+    #CSRS_signal_Uu_ref(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type)
+    CSRS_signal_Uu_ref(0, 0, 0, 0, 110, 110, 12, 7, 0)
+</t>
+<t tx="Michael.20120315095133.1445">def CSRS_received_IQ_ref(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type, to_draw=False):
+    
+    csrs_re_array = get_CSRS_in_symbol(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type)
+    csrs_baseband_IQ = s_p_l(csrs_re_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+    csrs_Uu_signal = downlink_modulate(csrs_baseband_IQ, t, f_0)
+    csrs_Uu_signal_downconverted = downlink_downconvert(csrs_Uu_signal, t, f_0)
+    
+    if to_draw:
+        legend_list = list()
+        plt.plot(t*1000, real(csrs_Uu_signal_downconverted))
+        legend_list.append('CSRS received IQ real part')
+        plt.title('CSRS received IQ')
+        plt.xlabel('Time (ms)')
+        plt.ylabel('Signal level')
+        plt.legend(legend_list)
+        #plt.axis( [-0.01, 0.075, -0.1, 14] )
+        plt.show()
+    return csrs_Uu_signal_downconverted
+
+def CSRS_received_IQ():
+    #CSRS_received_IQ_ref(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type)
+    CSRS_received_IQ_ref(0, 0, 0, 0, 110, 110, 12, 7, 0, to_draw=True)
+</t>
+<t tx="Michael.20120315095133.1446">def csrs_channel_estimation_in_one_symbol(received_baseband_IQ, ref_csrs_baseband_IQ, to_draw=False):
+    
+    received_baseband_IQ_fft = fft.fft( received_baseband_IQ[-1*N:], N )
+    ref_csrs_baseband_IQ_fft = fft.fft(ref_csrs_baseband_IQ[-1*N:], N)
+    channel_estimation_in_symbol = received_baseband_IQ_fft / ref_csrs_baseband_IQ_fft
+    
+    
+    subplot_pos_tupe = (121,122)
+    title_tuple = ('channel estimation spectrum magnitude','channel estimation spectrum phase')
+    y_label_tuple = ('spectrum magnitude', 'spectrum phase')
+    func_tuple = (abs, arctan)
+    legend_list = list()
+    for i in (0,1):
+        plt.subplot(subplot_pos_tupe[i])
+        plt.title(title_tuple[i])
+        plt.plot(func_tuple[i](channel_estimation_in_symbol))
+        #legend_list.append( ('antenna_port=%s'%(antenna_port), ))
+        plt.xlabel('n (FFT index)')
+        plt.ylabel(y_label_tuple[i])
+        #plt.axis([-0.01, 0.075, 0, 15])
+        #plt.legend( ('N_ID_cell=%s'%N_cell_ID,) )
+            
+    plt.show()
+
+def test_csrs_channel_estimation_in_one_symbol():
+    n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type = 0, 0, 0, 0, 110, 110, 12, 7, 0
+    csrs_re_array = get_CSRS_in_symbol(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type)
+    csrs_baseband_IQ = s_p_l(csrs_re_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+    csrs_Uu_signal = downlink_modulate(csrs_baseband_IQ, t, f_0)
+    csrs_Uu_signal_downconverted = downlink_downconvert(csrs_Uu_signal, t, f_0)
+    
+    csrs_channel_estimation_in_one_symbol(csrs_Uu_signal_downconverted, csrs_baseband_IQ, True)
 </t>
 <t tx="michael.20120223085633.1280">@language python
 @tabwidth -4
@@ -2582,7 +2803,7 @@ cProfile.runctx('main()', globals(), locals())
 def get_CSRS_in_symbol(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_RB_sc, N_DL_symb, DL_CP_type):
     '''
     '''
-    symbol_array = ndarray(shape=(N_maxDL_RB*N_RB_sc,),dtype=complexfloating)
+    symbol_array = ndarray(shape=(N_maxDL_RB*N_RB_sc,),dtype=complex128)
     for i in arange(len(symbol_array)):
         symbol_array[i] = 0
     csrs_seq = r_l_ns(n_s, l, N_cell_ID, N_maxDL_RB, DL_CP_type)
@@ -2614,7 +2835,8 @@ def get_CSRS_in_symbol(n_s, l, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_R
             m_ = m + N_maxDL_RB - N_DL_RB   # m'
             k = 6*m + (v+v_shift)%6
             symbol_array[k] = csrs_seq[m_]
-    return symbol_array</t>
+    return symbol_array
+</t>
 <t tx="michael.20120305092148.1280"></t>
 <t tx="michael.20120305092148.1281"></t>
 <t tx="michael.20120305092148.1283">def x_1(i):
@@ -2685,7 +2907,8 @@ cProfile.runctx('main()', globals(), locals())
         real_part = 1/sqrt(2) * (1-2*c(c_init,2*m))
         image_part = 1/sqrt(2) * (1-2*c(c_init,2*m+1))
         csrs_symbol_list.append( complex(real_part,image_part) )
-    return tuple(csrs_symbol_list)</t>
+    return tuple(csrs_symbol_list)
+</t>
 <t tx="michael.20120305092148.1290">def m_i( UL_DL_config, subframe ):
     m_i_table = (   (2,1,None,None,None,2,1,None,None,None),
                             (0,1,None,None,1,0,1,None,None,1),
@@ -2727,7 +2950,7 @@ def myplot(sig, t):
     plt.xlabel('time (ms)')
     plt.show()
 </t>
-<t tx="michael.20120305092148.1293">def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000):
+<t tx="michael.20120305092148.1293">def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='DIRECT'):
     '''
     Note: len(symbol_array)==N_DL_RB*N_RB_sc must be True.
     '''
@@ -2747,13 +2970,26 @@ def myplot(sig, t):
     else:   # delta_f == 7500
         N = 4096
     t = arange(0, (N_CP_l+N)*T_s, T_s)
-    signal_pl = 0
+    signal_pl =  array([0.0+0.0*1j] * (N_CP_l + N))
+    
     down_limit = int(floor(N_DL_RB*N_RB_sc/2))
     up_limit = int(ceil(N_DL_RB*N_RB_sc/2))
-    for k in arange( -1*down_limit, 0, 1 ):
-        signal_pl += symbol_array[k+down_limit]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
-    for k in arange(1, up_limit+1, 1):
-        signal_pl += symbol_array[k+down_limit-1]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
+    
+    if gen_method == 'DIRECT':
+        for k in arange( -1*down_limit, 0, 1 ):
+            signal_pl += symbol_array[k+down_limit]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
+        for k in arange(1, up_limit+1, 1):
+            signal_pl += symbol_array[k+down_limit-1]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
+    elif gen_method == 'IFFT':
+        mapped_seq = array([0.0+0.0*1j] * N)
+        mapped_seq[:down_limit] = symbol_array[:down_limit]
+        mapped_seq[down_limit] = 0.0 + 0.0 * 1j
+        mapped_seq[down_limit+1:down_limit+up_limit+1] = symbol_array[down_limit:]
+        #for i in arange(down_limit+up_limit+1, N):
+            #mapped_seq[i] = 0.0 + 0.0 * 1j
+        signal_pl[N_CP_l:] = fft.ifft(mapped_seq, N) * N * exp(1j*2*pi*down_limit*delta_f*t[-1*N:])
+        #signal_pl[:N_CP_l] = signal_pl[-1*N_CP_l:]
+        
     return signal_pl
 </t>
 <t tx="michael.20120305092148.1294"></t>
@@ -2827,26 +3063,74 @@ def x_uv(u, v, n, N_ZC):
 </t>
 <t tx="michael.20120305092148.1306"></t>
 <t tx="michael.20120305092148.1307"></t>
-<t tx="michael.20120305092148.1308"></t>
-<t tx="michael.20120305092148.1310"># time scale is in 1 ms
-T_s = 1.0/30720 # in ms
-f_0 = (2620+0.1*(2620-2750))*1000*1000  # in kHz
+<t tx="michael.20120305092148.1310">from scipy.signal import *
+from numpy import *
+import matplotlib.pyplot as plt
 
-@others
+# time scale is in 1 s
+T_s = 1.0/30720/1000 # in s
 
+# configuration for CSRS
+n_s = 0
 l = 0
+antenna_port = 0
 N_DL_RB = 110
+N_maxDL_RB = N_DL_RB
 N_RB_sc = 12
 N_DL_CP = 0 # normal DL CP
+DL_CP_type = 0
+N_DL_symb = 7
+N_ID_2_tuple = (0,1,2)
+delta_f = 15000
+subframe = 0
+N_cell_ID = 0
+f_0 = (2620+0.1*(2620-2750))*1000*1000  # in Hz
 
-symbol_array = array([0]*N_DL_RB*N_RB_sc)
-for i in arange(100):
-    symbol_array[i] = 1
+if N_DL_CP==0 and delta_f==15000:
+    if l==0:
+        N_CP_l = 160
+    else:
+        N_CP_l = 144
+elif N_DL_CP==1:    # extended CP
+    if delta_f==15000:
+        N_CP_l = 512
+    else:   # delta_f == 7500
+        N_CP_l = 1024
+if delta_f==15000:
+    N = 2048
+else:   # delta_f == 7500
+    N = 4096
 
-baseband_sig = s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000)
-t = arange(0, (160+2048)*T_s, T_s)
-uu_sig = downlink_modulate(baseband_sig, t, f_0)
-myplot(uu_sig, t)</t>
+t = arange(0, (N_CP_l+N)*T_s, T_s)
+
+def find_max( a_list ):
+    m = max(a_list)
+    for i in arange(len(a_list)):
+        if a_list[i] == m:
+            return (i, m)
+
+def find_min( a_array ):
+    x, y = 0, 0
+    for i in arange(len(a_array)):
+        if a_array[i] &lt; y:
+            x, y = i, a_array[i]
+    return (x,y)
+
+def find_abs_max( a_array ):
+    m = max(abs(a_array))
+    for i in arange(len(a_array)):
+        if abs(a_array[i]) == m:
+            return (i, m)
+
+            
+@others
+
+test_enabling_bits = 0b1
+
+# 01. OFDM baseband signal generation
+if test_enabling_bits &amp; (1&lt;&lt;0):
+    ofdm_baseband_signal_generation()
+</t>
 <t tx="michael.20120305092148.1312"></t>
 <t tx="michael.20120305092148.1313">from numpy import *
 import matplotlib.pyplot as plt
@@ -4278,7 +4562,7 @@ def sss_seq(subframe, N_ID_cell):
             plt.plot(cs_list, corr_dict[(subframe,N_ID_cell)], marker='+', linestyle='-')
             legend_list.append( 'subframe=%s, N_ID_cell=%s'%(subframe,N_ID_cell) )
             x, y = max_dict[(subframe,N_ID_cell)]
-            plt.annotate('Max of subframe=%s, N_ID_cell=%s: %4.4s @ cs=%s'%(subframe,N_ID_cell,y,cs_list[x]), xy=(cs_list[x], y), arrowprops=dict(facecolor='black', shrink=0.15), textcoords='offset points', xytext=(60, y_offsets[(subframe,N_ID_cell)]))
+            plt.annotate('Max of subframe=%s, N_ID_cell=%s: %4.4s @ cs=%s'%(subframe,N_ID_cell,y,cs_list[x]), xy=(cs_list[x], y), arrowprops=dict(facecolor='black', shrink=0.15), textcoords='offset points', xytext=(-60, y_offsets[(subframe,N_ID_cell)]))
         plt.title('SSS baseband IQ correlation')
         plt.legend(legend_list)
         plt.xlabel("Cyclic Shift")
@@ -4286,7 +4570,8 @@ def sss_seq(subframe, N_ID_cell):
         plt.show()
     
     return corr_dict
-    #plt.savefig('PSS_Uu_signal_inner_products.png', figsize=(1280,800), dpi=200, pad_inches=2)</t>
+    #plt.savefig('PSS_Uu_signal_inner_products.png', figsize=(1280,800), dpi=200, pad_inches=2)
+</t>
 <t tx="michael.20120314211632.1427">def sss_baseband_IQ_spectrum_correlation_ref(ref_subframe, ref_N_ID_cell, to_draw=True):
     
     #sss_dict = SSS_sequence_generation()
@@ -4351,7 +4636,8 @@ def sss_seq(subframe, N_ID_cell):
 def sss_baseband_IQ_spectrum_correlation():
     for ref_subframe in (0, 5):
         for ref_N_ID_cell in (0,):
-            sss_baseband_IQ_spectrum_correlation_ref(ref_subframe, ref_N_ID_cell, to_draw=True)</t>
+            sss_baseband_IQ_spectrum_correlation_ref(ref_subframe, ref_N_ID_cell, to_draw=True)
+</t>
 <t tx="michael.20120314211632.1428">def SSS_signal_Uu_ref(ref_subframe, ref_N_ID_cell):
     
     sss_re_array = sss_symbol_array(ref_subframe, ref_N_ID_cell, N_DL_RB, N_RB_sc)
@@ -4370,7 +4656,8 @@ def sss_baseband_IQ_spectrum_correlation():
     #plt.savefig('PSS_signal_Uu_for_N_ID_2=%s.png'%N_ID_2, dpi=300)
 
 def SSS_signal_Uu():
-    SSS_signal_Uu_ref(0, 0)</t>
+    SSS_signal_Uu_ref(0, 0)
+</t>
 <t tx="michael.20120314211632.1429">def SSS_received_IQ_ref(ref_subframe, ref_N_ID_cell):
     
     sss_re_array = sss_symbol_array(ref_subframe, ref_N_ID_cell, N_DL_RB, N_RB_sc)
@@ -4390,7 +4677,8 @@ def SSS_signal_Uu():
     #plt.savefig('PSS_signal_Uu_for_N_ID_2=%s.png'%N_ID_2, dpi=300)
 
 def SSS_received_IQ():
-    SSS_received_IQ_ref(0, 0)</t>
+    SSS_received_IQ_ref(0, 0)
+</t>
 <t tx="michael.20120314211632.1430">def SSS_received_IQ_spectrum_correlation_ref(ref_subframe, ref_N_ID_cell, to_draw=True):
 
     ref_sss_re_array = sss_symbol_array(ref_subframe, ref_N_ID_cell, N_DL_RB, N_RB_sc)
@@ -4465,7 +4753,8 @@ def SSS_received_IQ():
 def SSS_received_IQ_spectrum_correlation():
     for ref_subframe in (0,):
         for ref_N_ID_cell in (0,):
-            SSS_received_IQ_spectrum_correlation_ref(ref_subframe, ref_N_ID_cell, to_draw=True)</t>
+            SSS_received_IQ_spectrum_correlation_ref(ref_subframe, ref_N_ID_cell, to_draw=True)
+</t>
 <t tx="michael.20120314211632.1431">def SSS_baseband_detect(baseband_IQ_signal, local_t, to_draw=False):
     '''
     SSS_baseband_detect(baseband_IQ_signal, t): index
@@ -4552,5 +4841,19 @@ def test_SSS_detect_in_baseband_IQ():
         
         SSS_baseband_detect(received_baseband_IQ, long_t, to_draw=True)
 </t>
+<t tx="michael.20120315195140.1455">def ofdm_baseband_signal_generation():
+    
+    symbol_array = array( [0.0 + 0.0 * 1j]*(N_DL_RB*N_RB_sc) )
+    symbol_array[0] = 1
+    
+    ofdm_baseband_IQ_direct = s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='DIRECT')
+    ofdm_baseband_IQ_ifft = s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='IFFT')
+    
+    plt.plot(real(ofdm_baseband_IQ_ifft))
+    #plt.plot(real(ofdm_baseband_IQ_direct))
+    #plt.plot(real(ofdm_baseband_IQ_ifft)-real(ofdm_baseband_IQ_direct))
+    #plt.plot(real(ofdm_baseband_IQ_ifft))
+    #plt.plot(fft.fft(ofdm_baseband_IQ_ifft[-1*N:], N))
+    plt.show()</t>
 </tnodes>
 </leo_file>

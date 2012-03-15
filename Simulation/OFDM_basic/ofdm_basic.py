@@ -1,12 +1,83 @@
 #@+leo-ver=5-thin
-#@+node:michael.20120305092148.1300: * @thin ./test_files/simple_plot.py
+#@+node:michael.20120315195140.1454: * @thin ./Simulation/OFDM_basic/ofdm_basic.py
 #@+others
-#@+node:michael.20120305092148.1298: ** test
-# time scale is in 1 ms
-T_s = 1.0/30720 # in ms
-f_0 = (2620+0.1*(2620-2750))*1000*1000  # in kHz
+#@+node:michael.20120305092148.1310: ** source
+from scipy.signal import *
+from numpy import *
+import matplotlib.pyplot as plt
 
+# time scale is in 1 s
+T_s = 1.0/30720/1000 # in s
+
+# configuration for CSRS
+n_s = 0
+l = 0
+antenna_port = 0
+N_DL_RB = 110
+N_maxDL_RB = N_DL_RB
+N_RB_sc = 12
+N_DL_CP = 0 # normal DL CP
+DL_CP_type = 0
+N_DL_symb = 7
+N_ID_2_tuple = (0,1,2)
+delta_f = 15000
+subframe = 0
+N_cell_ID = 0
+f_0 = (2620+0.1*(2620-2750))*1000*1000  # in Hz
+
+if N_DL_CP==0 and delta_f==15000:
+    if l==0:
+        N_CP_l = 160
+    else:
+        N_CP_l = 144
+elif N_DL_CP==1:    # extended CP
+    if delta_f==15000:
+        N_CP_l = 512
+    else:   # delta_f == 7500
+        N_CP_l = 1024
+if delta_f==15000:
+    N = 2048
+else:   # delta_f == 7500
+    N = 4096
+
+t = arange(0, (N_CP_l+N)*T_s, T_s)
+
+def find_max( a_list ):
+    m = max(a_list)
+    for i in arange(len(a_list)):
+        if a_list[i] == m:
+            return (i, m)
+
+def find_min( a_array ):
+    x, y = 0, 0
+    for i in arange(len(a_array)):
+        if a_array[i] < y:
+            x, y = i, a_array[i]
+    return (x,y)
+
+def find_abs_max( a_array ):
+    m = max(abs(a_array))
+    for i in arange(len(a_array)):
+        if abs(a_array[i]) == m:
+            return (i, m)
+
+            
 #@+others
+#@+node:michael.20120315195140.1455: *3* 01. OFDM baseband signal generation
+def ofdm_baseband_signal_generation():
+    
+    symbol_array = array( [0.0 + 0.0 * 1j]*(N_DL_RB*N_RB_sc) )
+    symbol_array[0] = 1
+    
+    ofdm_baseband_IQ_direct = s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='DIRECT')
+    ofdm_baseband_IQ_ifft = s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='IFFT')
+    
+    plt.plot(real(ofdm_baseband_IQ_ifft))
+    #plt.plot(real(ofdm_baseband_IQ_direct))
+    #plt.plot(real(ofdm_baseband_IQ_ifft)-real(ofdm_baseband_IQ_direct))
+    #plt.plot(real(ofdm_baseband_IQ_ifft))
+    #plt.plot(fft.fft(ofdm_baseband_IQ_ifft[-1*N:], N))
+    plt.show()
 #@+node:michael.20120305092148.1293: *3* 6.12 OFDM baseband signal gen
 def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='DIRECT'):
     '''
@@ -96,18 +167,10 @@ def myplot(sig, t):
     plt.show()
 #@-others
 
-l = 0
-N_DL_RB = 110
-N_RB_sc = 12
-N_DL_CP = 0
+test_enabling_bits = 0b1
 
-symbol_array = array([0]*N_DL_RB*N_RB_sc)
-symbol_array[0] = 1
-symbol_array[-1] = 1
-
-baseband_sig = s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000)
-t = arange(0, (160+2048)*T_s, T_s)
-uu_sig = downlink_modulate(baseband_sig, t, f_0)
-myplot(uu_sig, t)
+# 01. OFDM baseband signal generation
+if test_enabling_bits & (1<<0):
+    ofdm_baseband_signal_generation()
 #@-others
 #@-leo

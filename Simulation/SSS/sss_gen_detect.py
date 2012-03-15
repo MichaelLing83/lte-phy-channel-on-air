@@ -161,7 +161,7 @@ def sss_baseband_IQ_correlation(to_draw=True):
             plt.plot(cs_list, corr_dict[(subframe,N_ID_cell)], marker='+', linestyle='-')
             legend_list.append( 'subframe=%s, N_ID_cell=%s'%(subframe,N_ID_cell) )
             x, y = max_dict[(subframe,N_ID_cell)]
-            plt.annotate('Max of subframe=%s, N_ID_cell=%s: %4.4s @ cs=%s'%(subframe,N_ID_cell,y,cs_list[x]), xy=(cs_list[x], y), arrowprops=dict(facecolor='black', shrink=0.15), textcoords='offset points', xytext=(60, y_offsets[(subframe,N_ID_cell)]))
+            plt.annotate('Max of subframe=%s, N_ID_cell=%s: %4.4s @ cs=%s'%(subframe,N_ID_cell,y,cs_list[x]), xy=(cs_list[x], y), arrowprops=dict(facecolor='black', shrink=0.15), textcoords='offset points', xytext=(-60, y_offsets[(subframe,N_ID_cell)]))
         plt.title('SSS baseband IQ correlation')
         plt.legend(legend_list)
         plt.xlabel("Cyclic Shift")
@@ -513,7 +513,7 @@ def sss_symbol_array(subframe, N_ID_cell, N_DL_RB, N_RB_sc):
         symbol_array[k] = sss_d(n, subframe, N_ID_cell)
     return symbol_array
 #@+node:michael.20120305092148.1293: *3* 6.12 OFDM baseband signal gen
-def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000):
+def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='DIRECT'):
     '''
     Note: len(symbol_array)==N_DL_RB*N_RB_sc must be True.
     '''
@@ -533,13 +533,26 @@ def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000):
     else:   # delta_f == 7500
         N = 4096
     t = arange(0, (N_CP_l+N)*T_s, T_s)
-    signal_pl = 0
+    signal_pl =  array([0.0+0.0*1j] * (N_CP_l + N))
+    
     down_limit = int(floor(N_DL_RB*N_RB_sc/2))
     up_limit = int(ceil(N_DL_RB*N_RB_sc/2))
-    for k in arange( -1*down_limit, 0, 1 ):
-        signal_pl += symbol_array[k+down_limit]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
-    for k in arange(1, up_limit+1, 1):
-        signal_pl += symbol_array[k+down_limit-1]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
+    
+    if gen_method == 'DIRECT':
+        for k in arange( -1*down_limit, 0, 1 ):
+            signal_pl += symbol_array[k+down_limit]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
+        for k in arange(1, up_limit+1, 1):
+            signal_pl += symbol_array[k+down_limit-1]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
+    elif gen_method == 'IFFT':
+        mapped_seq = array([0.0+0.0*1j] * N)
+        mapped_seq[:down_limit] = symbol_array[:down_limit]
+        mapped_seq[down_limit] = 0.0 + 0.0 * 1j
+        mapped_seq[down_limit+1:down_limit+up_limit+1] = symbol_array[down_limit:]
+        #for i in arange(down_limit+up_limit+1, N):
+            #mapped_seq[i] = 0.0 + 0.0 * 1j
+        signal_pl[N_CP_l:] = fft.ifft(mapped_seq, N) * N * exp(1j*2*pi*down_limit*delta_f*t[-1*N:])
+        #signal_pl[:N_CP_l] = signal_pl[-1*N_CP_l:]
+        
     return signal_pl
 #@+node:michael.20120305092148.1296: *3* 6.13 Modulation&upconversion
 def downlink_modulate(s_p_l, t, f_0):
