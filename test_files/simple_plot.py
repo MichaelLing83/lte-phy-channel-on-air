@@ -8,7 +8,7 @@ f_0 = (2620+0.1*(2620-2750))*1000*1000  # in kHz
 
 #@+others
 #@+node:michael.20120305092148.1293: *3* 6.12 OFDM baseband signal gen
-def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='DIRECT'):
+def ofdm_baseband_IQ_signal_generate(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='IFFT'):
     '''
     Note: len(symbol_array)==N_DL_RB*N_RB_sc must be True.
     '''
@@ -39,19 +39,88 @@ def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method=
         for k in arange(1, up_limit+1, 1):
             signal_pl += symbol_array[k+down_limit-1]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
     elif gen_method == 'IFFT':
-        mapped_seq = array([0.0+0.0*1j] * N)
-        mapped_seq[:down_limit] = symbol_array[:down_limit]
-        mapped_seq[down_limit] = 0.0 + 0.0 * 1j
-        mapped_seq[down_limit+1:down_limit+up_limit+1] = symbol_array[down_limit:]
-        #for i in arange(down_limit+up_limit+1, N):
-            #mapped_seq[i] = 0.0 + 0.0 * 1j
-        signal_pl[N_CP_l:] = fft.ifft(mapped_seq, N) * N * exp(1j*2*pi*down_limit*delta_f*t[-1*N:])
-        #signal_pl[:N_CP_l] = signal_pl[-1*N_CP_l:]
+        mapped_seq = map_baseband_IQ_for_ifft(symbol_array)
+        signal_pl[N_CP_l:] = fft.ifft(mapped_seq, N) * N
+        signal_pl[:N_CP_l] = signal_pl[-1*N_CP_l:]
         
     return signal_pl
+
+def map_baseband_IQ_for_ifft(baseband_IQ_array):
+    '''
+    Note: len(symbol_array)==N_DL_RB*N_RB_sc must be True.
+    '''
+    #T_s = 1./30720/1000  # all time scale is in 1 s
+    if delta_f==15000:
+        N = 2048
+    else:   # delta_f == 7500
+        N = 4096
+    #t = arange(0, (N_CP_l+N)*T_s, T_s)
+    #signal_pl =  array([0.0+0.0*1j] * (N_CP_l + N))
+    
+    down_limit = int(floor(len(baseband_IQ_array)/2))
+    up_limit = int(ceil(len(baseband_IQ_array)/2))
+    
+    mapped_seq = array([0.0+0.0*1j] * N)
+    # do the mapping before IFFT
+    tmp_index = N-1
+    for i in arange(down_limit-1, -1, -1):
+        mapped_seq[tmp_index] = baseband_IQ_array[i]
+        tmp_index -= 1
+    tmp_index = 1
+    for i in arange(down_limit, down_limit+up_limit):
+        mapped_seq[tmp_index] = baseband_IQ_array[i]
+        tmp_index += 1
+    return mapped_seq
+
+def map_fft_result_to_RE_IQ_array(fft_result_array):
+    '''
+    map_fft_result_to_baseband_IQ(fft_result_array): baseband_IQ_array
+    Note: len(fft_result_array)==N must be True
+            len(baseband_IQ_array) is N_DL_RB*N_RB_sc
+    '''
+    if delta_f==15000:
+        N = 2048
+    else:   # delta_f == 7500
+        N = 4096
+    
+    mapped_seq = array([0.0+0.0*1j] * (N_DL_RB*N_RB_sc))
+    
+    down_limit = int(floor(len(mapped_seq)/2))
+    up_limit = int(ceil(len(mapped_seq)/2))
+    
+    tmp_index = N-1
+    for i in arange(down_limit-1, -1, -1):
+        mapped_seq[i] = fft_result_array[tmp_index]
+        tmp_index -= 1
+    tmp_index = 1
+    for i in arange(down_limit, down_limit+up_limit):
+        mapped_seq[i] = fft_result_array[tmp_index]
+        tmp_index += 1
+        
+    return mapped_seq
+    
+def ofdm_baseband_IQ_to_RE_IQ_array(baseband_IQ_array, N_DL_RB, N_RB_sc, delta_f=15000):
+    '''
+    Note: len(baseband_IQ_array)==N must be True.
+    '''
+    if delta_f==15000:
+        N = 2048
+    else:   # delta_f == 7500
+        N = 4096
+
+    re_IQ_array =  array([0.0+0.0*1j] * (N_DL_RB * N_RB_sc))
+    re_IQ_array = 1.0/N * map_fft_result_to_RE_IQ_array(fft.fft(baseband_IQ_array, N))
+        
+    return re_IQ_array
 #@+node:michael.20120305092148.1296: *3* 6.13 Modulation&upconversion
 def downlink_modulate(s_p_l, t, f_0):
-    return cos(2*pi*f_0*t) * s_p_l.real - sin(2*pi*f_0*t) * imag(s_p_l)
+    modulated_signal = cos(2*pi*f_0*t) * s_p_l.real - sin(2*pi*f_0*t) * imag(s_p_l)
+    cutoff_freq = f_0
+    nyq = 2 * f_0
+    numtaps = 80
+    lp_fir = firwin(numtaps, cutoff_freq, window=('kaiser',8), nyq=nyq)
+    filtered_modulated_signal = convolve( modulated_signal, lp_fir )[numtaps/2:len(modulated_signal)+numtaps/2]
+    return modulated_signal
 
 def downlink_downconvert(signal, t, f_0):
     
@@ -105,7 +174,7 @@ symbol_array = array([0]*N_DL_RB*N_RB_sc)
 symbol_array[0] = 1
 symbol_array[-1] = 1
 
-baseband_sig = s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000)
+baseband_sig = ofdm_baseband_IQ_signal_generate(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000)
 t = arange(0, (160+2048)*T_s, T_s)
 uu_sig = downlink_modulate(baseband_sig, t, f_0)
 myplot(uu_sig, t)

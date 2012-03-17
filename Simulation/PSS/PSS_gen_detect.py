@@ -2,8 +2,8 @@
 #@+node:michael.20120305092148.1319: * @thin ./Simulation/PSS/PSS_gen_detect.py
 #@+others
 #@+node:michael.20120305092148.1318: ** source code
-from numpy import *
 from scipy.signal import *
+from numpy import *
 import matplotlib.pyplot as plt
 
 # time scale is in 1 s
@@ -150,7 +150,7 @@ def PSS_baseband_IQ_signal_in_time_domain():
     pss_baseband_symbol_list = [0]*3
     for N_ID_2 in N_ID_2_tuple:
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol_list[N_ID_2] = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol_list[N_ID_2] = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         
     for i in (0,1,2):
         for N_ID_2 in N_ID_2_tuple:
@@ -180,7 +180,7 @@ def PSS_baseband_IQ_spectrum(to_draw=True):
         #print pss_freq_symbol_array_ext[N/2]
         #pss_ifft = fft.ifft(pss_freq_symbol_array, N)
         #pss_fft = fft.fft(pss_ifft, N)
-        pss_baseband_IQ = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)[-1*N:]
+        pss_baseband_IQ = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)[-1*N:]
         pss_baseband_IQ_fft = fft.fft(pss_baseband_IQ, N)
         plt.title('PSS baseband IQ spectrum for N_ID_2=%s'%N_ID_2)
         legend_list.append( 'Spectrum magnitude' )
@@ -204,7 +204,7 @@ def PSS_baseband_IQ_spectrum_correlation(to_draw=True):
     for N_ID_2 in N_ID_2_tuple:
         
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_IQ = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)[-1*N:]
+        pss_baseband_IQ = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)[-1*N:]
         pss_baseband_IQ_FFT_list[N_ID_2] = fft.fft(pss_baseband_IQ, N)
 
     #print cs_corr.shape, cs_list.shape
@@ -259,7 +259,7 @@ def PSS_signal_Uu():
     for N_ID_2 in N_ID_2_tuple:
         
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         
         #plt.plot(t, symbol_array)
@@ -281,7 +281,7 @@ def PSS_signal_Uu_downconversion():
     for N_ID_2 in N_ID_2_tuple:
         
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_down = downlink_downconvert(pss_uu_sig, t, f_0)
         
@@ -314,7 +314,7 @@ def PSS_Uu_signal_downconverted_correlation_IQ(correlation_type='I+Q', to_draw=T
     
     for N_ID_2 in N_ID_2_tuple:
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_IQ = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_IQ = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_baseband_IQ_list[N_ID_2] = pss_baseband_IQ[-1*N:]
         pss_baseband_I_list[N_ID_2] = real(pss_baseband_IQ)[-1*N:]
         pss_baseband_Q_list[N_ID_2] = imag(pss_baseband_IQ)[-1*N:]
@@ -399,7 +399,7 @@ def PSS_received_IQ_spectrum(to_draw=True):
         plt.subplot(subplot_pos_tuple[N_ID_2])
         legend_list = list()
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_down = downlink_downconvert(pss_uu_sig, t, f_0)[-1*N:]
         pss_uu_sig_down_fft = fft.fft(pss_uu_sig_down, N)
@@ -420,7 +420,7 @@ def PSS_Uu_signal_downconverted_decimated_1_16_correlation(to_draw=True):
     
     for N_ID_2 in N_ID_2_tuple:
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_IQ = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_IQ = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_IQ, t, f_0)
         pss_Uu_signal_downconverted_list[N_ID_2] = downlink_downconvert(pss_uu_sig, t, f_0)[-1*N:]
     
@@ -491,11 +491,11 @@ def PSS_baseband_detect(baseband_IQ_signal, local_t, to_draw=False):
     pss_baseband_Q_list = [0]*3
     
     tmp_t = arange(0, (N_CP_l+N)*T_s, T_s)
-    N_ID_2_tuple = (0,1)
+    #N_ID_2_tuple = (0,1)
     for N_ID_2 in N_ID_2_tuple:
         
         pss_seq = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_IQ = s_p_l(pss_seq, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_IQ = ofdm_baseband_IQ_signal_generate(pss_seq, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_baseband_IQ_list[N_ID_2] = pss_baseband_IQ[-1*N:]
         pss_baseband_I_list[N_ID_2] = real(pss_baseband_IQ[-1*N:])
         pss_baseband_Q_list[N_ID_2] = imag(pss_baseband_IQ[-1*N:])
@@ -512,8 +512,8 @@ def PSS_baseband_detect(baseband_IQ_signal, local_t, to_draw=False):
     
     for offset in offset_list:
         for N_ID in N_ID_2_tuple:
-            corr_list[N_ID][offset] = correlate(baseband_IQ_signal_Q[offset:offset+N], pss_baseband_Q_list[N_ID])[0]
-            #corr_list[N_ID][offset] = abs(correlate(baseband_IQ_signal_conj[offset:offset+N], pss_baseband_IQ_list[N_ID])[0])
+            #corr_list[N_ID][offset] = correlate(baseband_IQ_signal_Q[offset:offset+N], pss_baseband_Q_list[N_ID])[0]
+            corr_list[N_ID][offset] = abs(correlate(baseband_IQ_signal_conj[offset:offset+N], pss_baseband_IQ_list[N_ID])[0])
             #corr_list[N_ID][offset] = abs(correlate(baseband_IQ_signal_conj[offset:offset+N], baseband_IQ_signal[144:144+N])[0])
     n_ID_2, X, Y = -1, 0, 0
     for N_ID_2 in N_ID_2_tuple:
@@ -529,7 +529,7 @@ def PSS_baseband_detect(baseband_IQ_signal, local_t, to_draw=False):
     Y = Y/abs(Y)
     if n_ID_2==1 and Y<0:
         n_ID_2 = 2
-                
+    
     if to_draw:
         for N_ID_2 in N_ID_2_tuple:
             plt.plot(1000*local_t[:-1*(N-1)], corr_list[N_ID_2], marker='+', linestyle='-')
@@ -551,15 +551,65 @@ def test_PSS_detect_in_baseband_IQ():
     for n_ID_2 in N_ID_2_tuple:
 
         pss_sequence = pss_symbol_array(n_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_IQ = s_p_l(pss_sequence, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_IQ = ofdm_baseband_IQ_signal_generate(pss_sequence, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_Uu_sig = downlink_modulate(pss_baseband_IQ, t, f_0)
         pss_received_IQ = downlink_downconvert(pss_Uu_sig, t, f_0)
-        received_baseband_IQ = array( [0.0+0.0*1j] * len(pss_received_IQ) * 2 )
+        received_baseband_IQ = array( [0.0+0.0*1j] * (len(pss_received_IQ) * 2) )
         received_baseband_IQ[:len(pss_received_IQ)] = pss_received_IQ
         long_t = arange(0, 2*(N_CP_l+N)*T_s, T_s)
         
         PSS_baseband_detect(received_baseband_IQ, long_t, to_draw=True)
         #PSS_baseband_detect(pss_received_IQ, t, to_draw=True)
+#@+node:Michael.20120316092234.1457: *3* 12. Channel estimation using PSS
+def channel_estimation_using_PSS(baseband_IQ_array, N_ID_2, l, N_DL_RB, N_RB_sc, delta_f, to_draw=False):
+    '''
+    Note: len(baseband_IQ_array)==N must be True.
+    '''
+    pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
+    #pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+    pss_seq_send = get_pss_seq_from_RE_symbol_array(pss_freq_symbol_array, N_RB_sc)
+    
+    pss_seq_received = get_pss_seq_from_RE_symbol_array(baseband_IQ_array, N_RB_sc)
+    pss_channel_estimation = pss_seq_received / pss_seq_send
+    
+    #pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
+    #pss_uu_sig_down = downlink_downconvert(pss_uu_sig, t, f_0)[-1*N:]
+    #pss_received_RE_IQ_array = ofdm_baseband_IQ_to_RE_IQ_array(pss_uu_sig_down, N_DL_RB, N_RB_sc, delta_f=15000)
+    if to_draw:
+        subplot_pos_tuple = (121,122)
+        #plt.subplot(subplot_pos_tuple[N_ID_2])
+        legend_list = list()
+        
+        plt.subplot(121)
+        plt.title('Channel estimation magnitude')
+        plt.xlabel('n (subcarrier index)')
+        plt.ylabel('Channel est. magnitude')
+        plt.plot(abs(pss_channel_estimation))
+        #plt.show()
+        
+        plt.subplot(122)
+        plt.title('Channel estimation phase')
+        plt.xlabel('n (subcarrier index)')
+        plt.ylabel('Channel est. phase')
+        plt.plot(angle(pss_channel_estimation))
+        
+        plt.show()
+    
+    return pss_channel_estimation
+    
+def test_channel_estimation_using_PSS():
+    N_ID_2 = 0
+    pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
+    pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+    #pss_seq_send = get_pss_seq_from_RE_symbol_array(pss_freq_symbol_array, N_RB_sc)
+    
+    #pss_seq_received = get_pss_seq_from_RE_symbol_array(pss_received_RE_IQ_array, N_RB_sc)
+    #pss_channel_estimation = pss_seq_received / pss_seq_send
+    
+    pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
+    pss_received_IQ_array = downlink_downconvert(pss_uu_sig, t, f_0)[-1*N:]
+    #pss_received_RE_IQ_array = ofdm_baseband_IQ_to_RE_IQ_array(pss_uu_sig_down, N_DL_RB, N_RB_sc, delta_f=15000)
+    channel_estimation_using_PSS(pss_received_IQ_array, N_ID_2, l, N_DL_RB, N_RB_sc, delta_f, to_draw=True)
 #@+node:michael.20120305092148.1303: *3* 6.11.1.1 seq gen
 def pss_d(n, N_ID_2):
     u = (25, 29, 34)[N_ID_2]
@@ -578,8 +628,27 @@ def pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc):
         k = n-31+N_DL_RB*N_RB_sc/2
         symbol_array[k] = pss_d(n, N_ID_2)
     return symbol_array
+
+def pss_k_range(N_DL_RB, N_RB_sc):
+    
+    start_index = 0-31+N_DL_RB*N_RB_sc/2
+    end_index = 61-31+N_DL_RB*N_RB_sc/2
+    
+    return (start_index, end_index)
+
+def get_pss_seq_from_RE_symbol_array(re_symbol_array, N_RB_sc):
+    '''
+    Note: len(re_symbol_array)==N_DL_RB*N_RB_sc must be True!
+    '''
+    pss_seq_received = array([0.0 + 0.0 * 1j] * (6 * N_RB_sc))
+    pss_start_k, pss_end_k = pss_k_range(N_DL_RB, N_RB_sc)
+    tmp_index = pss_start_k
+    for i in arange(5, 6*N_RB_sc):
+        pss_seq_received[i] = re_symbol_array[tmp_index]
+        tmp_index += 1
+    return pss_seq_received
 #@+node:michael.20120305092148.1293: *3* 6.12 OFDM baseband signal gen
-def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='DIRECT'):
+def ofdm_baseband_IQ_signal_generate(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method='IFFT'):
     '''
     Note: len(symbol_array)==N_DL_RB*N_RB_sc must be True.
     '''
@@ -610,19 +679,88 @@ def s_p_l(symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f=15000, gen_method=
         for k in arange(1, up_limit+1, 1):
             signal_pl += symbol_array[k+down_limit-1]*exp(1j*2*pi*k*delta_f*(t-N_CP_l*T_s))
     elif gen_method == 'IFFT':
-        mapped_seq = array([0.0+0.0*1j] * N)
-        mapped_seq[:down_limit] = symbol_array[:down_limit]
-        mapped_seq[down_limit] = 0.0 + 0.0 * 1j
-        mapped_seq[down_limit+1:down_limit+up_limit+1] = symbol_array[down_limit:]
-        #for i in arange(down_limit+up_limit+1, N):
-            #mapped_seq[i] = 0.0 + 0.0 * 1j
-        signal_pl[N_CP_l:] = fft.ifft(mapped_seq, N) * N * exp(1j*2*pi*down_limit*delta_f*t[-1*N:])
-        #signal_pl[:N_CP_l] = signal_pl[-1*N_CP_l:]
+        mapped_seq = map_baseband_IQ_for_ifft(symbol_array)
+        signal_pl[N_CP_l:] = fft.ifft(mapped_seq, N) * N
+        signal_pl[:N_CP_l] = signal_pl[-1*N_CP_l:]
         
     return signal_pl
+
+def map_baseband_IQ_for_ifft(baseband_IQ_array):
+    '''
+    Note: len(symbol_array)==N_DL_RB*N_RB_sc must be True.
+    '''
+    #T_s = 1./30720/1000  # all time scale is in 1 s
+    if delta_f==15000:
+        N = 2048
+    else:   # delta_f == 7500
+        N = 4096
+    #t = arange(0, (N_CP_l+N)*T_s, T_s)
+    #signal_pl =  array([0.0+0.0*1j] * (N_CP_l + N))
+    
+    down_limit = int(floor(len(baseband_IQ_array)/2))
+    up_limit = int(ceil(len(baseband_IQ_array)/2))
+    
+    mapped_seq = array([0.0+0.0*1j] * N)
+    # do the mapping before IFFT
+    tmp_index = N-1
+    for i in arange(down_limit-1, -1, -1):
+        mapped_seq[tmp_index] = baseband_IQ_array[i]
+        tmp_index -= 1
+    tmp_index = 1
+    for i in arange(down_limit, down_limit+up_limit):
+        mapped_seq[tmp_index] = baseband_IQ_array[i]
+        tmp_index += 1
+    return mapped_seq
+
+def map_fft_result_to_RE_IQ_array(fft_result_array):
+    '''
+    map_fft_result_to_baseband_IQ(fft_result_array): baseband_IQ_array
+    Note: len(fft_result_array)==N must be True
+            len(baseband_IQ_array) is N_DL_RB*N_RB_sc
+    '''
+    if delta_f==15000:
+        N = 2048
+    else:   # delta_f == 7500
+        N = 4096
+    
+    mapped_seq = array([0.0+0.0*1j] * (N_DL_RB*N_RB_sc))
+    
+    down_limit = int(floor(len(mapped_seq)/2))
+    up_limit = int(ceil(len(mapped_seq)/2))
+    
+    tmp_index = N-1
+    for i in arange(down_limit-1, -1, -1):
+        mapped_seq[i] = fft_result_array[tmp_index]
+        tmp_index -= 1
+    tmp_index = 1
+    for i in arange(down_limit, down_limit+up_limit):
+        mapped_seq[i] = fft_result_array[tmp_index]
+        tmp_index += 1
+        
+    return mapped_seq
+    
+def ofdm_baseband_IQ_to_RE_IQ_array(baseband_IQ_array, N_DL_RB, N_RB_sc, delta_f=15000):
+    '''
+    Note: len(baseband_IQ_array)==N must be True.
+    '''
+    if delta_f==15000:
+        N = 2048
+    else:   # delta_f == 7500
+        N = 4096
+
+    re_IQ_array =  array([0.0+0.0*1j] * (N_DL_RB * N_RB_sc))
+    re_IQ_array = 1.0/N * map_fft_result_to_RE_IQ_array(fft.fft(baseband_IQ_array, N))
+        
+    return re_IQ_array
 #@+node:michael.20120305092148.1296: *3* 6.13 Modulation&upconversion
 def downlink_modulate(s_p_l, t, f_0):
-    return cos(2*pi*f_0*t) * s_p_l.real - sin(2*pi*f_0*t) * imag(s_p_l)
+    modulated_signal = cos(2*pi*f_0*t) * s_p_l.real - sin(2*pi*f_0*t) * imag(s_p_l)
+    cutoff_freq = f_0
+    nyq = 2 * f_0
+    numtaps = 80
+    lp_fir = firwin(numtaps, cutoff_freq, window=('kaiser',8), nyq=nyq)
+    filtered_modulated_signal = convolve( modulated_signal, lp_fir )[numtaps/2:len(modulated_signal)+numtaps/2]
+    return modulated_signal
 
 def downlink_downconvert(signal, t, f_0):
     
@@ -677,7 +815,7 @@ def test(to_draw=True):
         all_subcarrier_array = array([0] * (N_DL_RB * N_RB_sc+1))
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
         all_subcarrier_array[:N_DL_RB*N_RB_sc/2]
-        pss_baseband_IQ = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)[-1*N:]
+        pss_baseband_IQ = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)[-1*N:]
         pss_baseband_IQ_fft = fft.fft(pss_baseband_IQ, N)
         plt.title('PSS baseband IQ spectrum for N_ID_2=%s'%N_ID_2)
         legend_list.append( 'Spectrum magnitude' )
@@ -700,7 +838,7 @@ def PSS_received_IQ_FFT():
     for N_ID_2 in N_ID_2_tuple:
         
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_down = downlink_downconvert(pss_uu_sig, t, f_0)
         pss_uu_sig_down_no_cp = pss_uu_sig_down[-1*N:]
@@ -728,7 +866,7 @@ def PSS_received_IQ_time_domain_correlation(to_draw=True):
     for N_ID_2 in N_ID_2_tuple:
         
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_IQ = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_IQ = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_baseband_IQ_list[N_ID_2] = pss_baseband_IQ[-1*N:]
         pss_uu_sig = downlink_modulate(pss_baseband_IQ, t, f_0)
         pss_received_IQ_list[N_ID_2] = downlink_downconvert(pss_uu_sig, t, f_0)[-1*N:]
@@ -770,7 +908,7 @@ def PSS_Uu_signal_FFT_N_16_correlation():
     t = arange(0, (N_CP_l+N)*T_s, T_s)
     for N_ID_2 in N_ID_2_tuple:
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_no_cp = pss_uu_sig[-1*N:]
         pss_uu_sig_no_cp_dec = array( [0]*N_16 )
@@ -814,7 +952,7 @@ def PSS_received_IQ_FFT_N_correlation():
     pss_received_IQ_list = [0] * 3
     for N_ID_2 in N_ID_2_tuple:
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_IQ = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_IQ = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_baseband_IQ_fft_list[N_ID_2] = fft.fft(pss_baseband_IQ, N)
         pss_uu_sig = downlink_modulate(pss_baseband_IQ, t, f_0)
         pss_received_IQ_list[N_ID_2] = downlink_downconvert(pss_uu_sig, t, f_0)[-1*N:]
@@ -859,7 +997,7 @@ def PSS_Uu_signal_FFT_after_10MHzlowpass_N_correlation():
 
     for N_ID_2 in N_ID_2_tuple:
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_no_cp = pss_uu_sig[-1*N:]
         # apply an low pass FIR filter
@@ -909,7 +1047,7 @@ def PSS_Uu_signal_FFT_after_540KHzlowpass_N_correlation():
 
     for N_ID_2 in N_ID_2_tuple:
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_no_cp = pss_uu_sig[-1*N:]
         # apply an low pass FIR filter
@@ -961,7 +1099,7 @@ def PSS_Uu_signal_FFT_after_540KHzlowpass_filter():
     for N_ID_2 in N_ID_2_tuple:
         
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_no_cp = pss_uu_sig[-1*N:]
         
@@ -995,7 +1133,7 @@ def PSS_Uu_signal_FFT_after_10MHzlowpass_N_16_correlation():
 
     for N_ID_2 in N_ID_2_tuple:
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_no_cp = pss_uu_sig[-1*N:]
         pss_uu_sig_no_cp_lp = convolve(pss_uu_sig_no_cp, lp_fir)
@@ -1045,7 +1183,7 @@ def PSS_Uu_signal_FFT_after_540KHzlowpass_N_16_correlation():
 
     for N_ID_2 in N_ID_2_tuple:
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_no_cp = pss_uu_sig[-1*N:]
         pss_uu_sig_no_cp_lp = convolve(pss_uu_sig_no_cp, lp_fir)
@@ -1096,7 +1234,7 @@ def PSS_Uu_signal_FFT_after_10MHzlowpass_filter():
     for N_ID_2 in N_ID_2_tuple:
         
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         pss_uu_sig_no_cp = pss_uu_sig[-1*N:]
         # apply an low pass FIR filter
@@ -1122,7 +1260,7 @@ def PSS_received_IQ_decimated_16():
     for N_ID_2 in N_ID_2_tuple:
         
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_symbol = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_symbol = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_symbol, t, f_0)
         length = len(pss_uu_sig)/16
         pss_uu_sig_dec = array([0]*length)
@@ -1152,7 +1290,7 @@ def PSS_received_IQ_convolve(to_draw=True):
     for N_ID_2 in N_ID_2_tuple:
         
         pss_freq_symbol_array = pss_symbol_array(N_ID_2, N_DL_RB, N_RB_sc)
-        pss_baseband_IQ_list[N_ID_2] = s_p_l(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
+        pss_baseband_IQ_list[N_ID_2] = ofdm_baseband_IQ_signal_generate(pss_freq_symbol_array, l, N_DL_RB, N_RB_sc, N_DL_CP, delta_f)
         pss_uu_sig = downlink_modulate(pss_baseband_IQ_list[N_ID_2], t, f_0)
         pss_iq_sig_list[N_ID_2] = downlink_downconvert(pss_uu_sig, t, f_0)[-1*N:]
     
@@ -1239,7 +1377,7 @@ def z_fft_of_ZC():
 
 #@-others
 
-test_enabling_bits = 0b10000000000
+test_enabling_bits = 0b100000000000
 
 # 01. PSS spectrum before OFDM generation
 if test_enabling_bits & (1<<0):
@@ -1284,6 +1422,10 @@ if test_enabling_bits & (1<<9):
 # 11. PSS detect
 if test_enabling_bits & (1<<10):
     test_PSS_detect_in_baseband_IQ()
+    
+# 12. Channel estimation using PSS
+if test_enabling_bits & (1<<11):
+    test_channel_estimation_using_PSS()
 
 
 #@-others
