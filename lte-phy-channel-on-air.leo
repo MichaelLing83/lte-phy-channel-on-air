@@ -63,7 +63,7 @@
 expanded="michael.20120305092148.1310,"><vh>@thin ./Simulation/OFDM_basic/ofdm_basic.py</vh></v>
 </v>
 <v t="michael.20120309091906.1388"><vh>Plot methods</vh></v>
-<v t="michael.20120305092148.1317" a="E"><vh>PSS gen &amp; detect</vh>
+<v t="michael.20120305092148.1317"><vh>PSS gen &amp; detect</vh>
 <v t="michael.20120305092148.1319" a="E"
 expanded="michael.20120305092148.1318,"><vh>@thin ./Simulation/PSS/PSS_gen_detect.py</vh></v>
 <v t="michael.20120305092148.1318" a="E"><vh>source code</vh>
@@ -104,7 +104,7 @@ expanded="michael.20120305092148.1318,"><vh>@thin ./Simulation/PSS/PSS_gen_detec
 </v>
 </v>
 </v>
-<v t="Michael.20120314113327.1412"><vh>SSS gen &amp; detect</vh>
+<v t="Michael.20120314113327.1412" a="E"><vh>SSS gen &amp; detect</vh>
 <v t="Michael.20120314113327.1413" a="E"><vh>source</vh>
 <v t="Michael.20120314113327.1415"><vh>01. SSS sequence generation</vh></v>
 <v t="Michael.20120314113327.1417"><vh>02. SSS baseband IQ time domain signal</vh></v>
@@ -791,7 +791,7 @@ def SSS_received_sequence():
             corr_dict[(subframe,N_ID_cell)] = array( [0] *N )
             for i in arange(len(cs_list)):
                 tmp_sss_received_re_array = map_fft_result_to_RE_IQ_array(roll(sss_received_IQ_dict[(subframe,N_ID_cell)], i))
-                tmp_sss_received_seq = get_sss_seq_from_RE_symbol_array(tmp_sss_received_re_array, N_RB_sc, adjust_method='+1-1')
+                tmp_sss_received_seq = get_sss_seq_from_RE_symbol_array(tmp_sss_received_re_array, N_RB_sc, do_adjust=False, adjust_method='+1-1')
                 corr_dict[(subframe,N_ID_cell)][i] = abs(correlate(sss_sent_seq, tmp_sss_received_seq)[0])
             max_dict[(subframe,N_ID_cell)] = find_max(corr_dict[(subframe,N_ID_cell)])
     # normalize the correlation results
