@@ -16,6 +16,23 @@
 <v t="michael.20120305092148.1295" a="E"><vh>6 Downlink</vh>
 <v t="michael.20120305092148.1304"><vh>5.07.2 Preamble seq gen</vh></v>
 <v t="michael.20120305092148.1278"><vh>6.02.4 REGs</vh></v>
+<v t="Michael.20120319125504.1471" a="E"><vh>6.03.3 Layer mapping</vh>
+<v t="Michael.20120319125504.1472"><vh>6.3.3.1 Layer mapping for transmission on a single antenna port</vh></v>
+<v t="Michael.20120319125504.1473"><vh>6.3.3.2 Layer mapping for spatial multiplexing</vh></v>
+<v t="Michael.20120319125504.1475"><vh>6.3.3.3 Layer mapping for transmit diversity</vh></v>
+</v>
+<v t="Michael.20120319125504.1476" a="E"><vh>6.03.4 Precoding</vh>
+<v t="Michael.20120319125504.1477"><vh>6.3.4.1 Precoding for transmission on a single antenna port</vh></v>
+<v t="Michael.20120319125504.1478" a="E"><vh>6.3.4.2 Precoding for spatial multiplexing using antenna ports with CSRS</vh>
+<v t="Michael.20120319125504.1479"><vh>6.3.4.2.1 Precoding without CDD</vh></v>
+<v t="Michael.20120319125504.1480"><vh>6.3.4.2.3 Codebook for precoding</vh></v>
+</v>
+</v>
+<v t="Michael.20120319125504.1463" a="E"><vh>6.07 PCFICH</vh>
+<v t="Michael.20120319125504.1464"><vh>6.7.1 Scrambing</vh></v>
+<v t="Michael.20120319125504.1465"><vh>6.7.2 Modulation</vh></v>
+<v t="Michael.20120319125504.1474"><vh>6.7.3 Layer mapping and precoding</vh></v>
+</v>
 <v t="michael.20120305092148.1290"><vh>6.09 PHICH</vh></v>
 <v t="michael.20120305092148.1280"><vh>6.10 RS</vh>
 <v t="michael.20120305092148.1281" a="E"><vh>6.10.1 CSRS</vh>
@@ -23,7 +40,7 @@
 <v t="michael.20120305092148.1279"><vh>6.10.1.2 Mapping to REs</vh></v>
 </v>
 </v>
-<v t="michael.20120305092148.1301" a="E"><vh>6.11 Sync signals</vh>
+<v t="michael.20120305092148.1301"><vh>6.11 Sync signals</vh>
 <v t="michael.20120305092148.1302" a="E"><vh>6.11.1 PSS</vh>
 <v t="michael.20120305092148.1303"><vh>6.11.1.1 seq gen</vh></v>
 <v t="michael.20120305092148.1305"><vh>6.11.1.2 mapping to REs</vh></v>
@@ -37,17 +54,24 @@
 <v t="michael.20120305092148.1296"><vh>6.13 Modulation&amp;upconversion</vh></v>
 </v>
 <v t="michael.20120305092148.1294" a="E"><vh>7 Generic functions</vh>
+<v t="Michael.20120319125504.1466" a="E"><vh>7.1 Modulation mapper</vh>
+<v t="Michael.20120319125504.1467"><vh>7.1.1 BPSK</vh></v>
+<v t="Michael.20120319125504.1468"><vh>7.1.2 QPSK</vh></v>
+<v t="Michael.20120319125504.1469"><vh>7.1.3 16QAM</vh></v>
+<v t="Michael.20120319125504.1470"><vh>7.1.4 64QAM</vh></v>
+</v>
 <v t="michael.20120305092148.1283"><vh>7.2 Pseudo-random seq gen</vh></v>
 </v>
 </v>
 <v t="michael.20120305092148.1315"><vh>Gegeral math</vh>
 <v t="michael.20120305092148.1316"><vh>Zadoff-Chu seq</vh></v>
 </v>
+<v t="Michael.20120319125504.1481"><vh>Error handling</vh></v>
 </v>
 <v t="michael.20120305092148.1291"><vh>Plotting_scripts</vh>
 <v t="michael.20120305092148.1292"><vh>plot_symbols</vh></v>
 </v>
-<v t="michael.20120305092148.1306" a="E"><vh>Simulations</vh>
+<v t="michael.20120305092148.1306"><vh>Simulations</vh>
 <v t="michael.20120309091906.1376"><vh>Low pass filter</vh>
 <v t="michael.20120309091906.1377"><vh>souce code</vh></v>
 <v t="michael.20120309091906.1378"><vh>@thin ./test_files/low_pass_filter.py</vh></v>
@@ -155,10 +179,11 @@ expanded="Michael.20120314113327.1413,"><vh>@thin ./Simulation/SSS/sss_gen_detec
 <v t="michael.20120305092148.1299"><vh>test_files</vh>
 <v t="michael.20120305092148.1300" a="E"><vh>@thin ./test_files/simple_plot.py</vh></v>
 </v>
-<v t="michael.20120305092148.1297"><vh>TD-LTE</vh>
-<v t="michael.20120223085633.1295"><vh>Source codes</vh>
-<v t="michael.20120223085633.1281"><vh>Tools</vh>
+<v t="michael.20120305092148.1297" a="E"><vh>TD-LTE</vh>
+<v t="michael.20120223085633.1295" a="E"><vh>Source codes</vh>
+<v t="michael.20120223085633.1281" a="E"><vh>Tools</vh>
 <v t="michael.20120223085633.1287"><vh>class Point</vh></v>
+<v t="Michael.20120319125504.1462"><vh>class ConfigException</vh></v>
 </v>
 <v t="michael.20120223085633.1308"><vh>class Config</vh>
 <v t="michael.20120223085633.1310"><vh>get_config</vh></v>
@@ -173,8 +198,8 @@ expanded="Michael.20120314113327.1413,"><vh>@thin ./Simulation/SSS/sss_gen_detec
 <v t="michael.20120301114815.1253"><vh>validate_config</vh></v>
 <v t="michael.20120301114815.1254"><vh>process_config</vh></v>
 </v>
-<v t="michael.20120223085633.1336"><vh>DL_PHY</vh>
-<v t="michael.20120223085633.1339"><vh>CSRS</vh>
+<v t="michael.20120223085633.1336" a="E"><vh>DL_PHY</vh>
+<v t="michael.20120223085633.1339" a="E"><vh>CSRS</vh>
 <v t="michael.20120301114815.1386"><vh>get_CSRS_AP</vh></v>
 <v t="michael.20120301114815.1387"><vh>set_CSRS_REs</vh></v>
 </v>
@@ -182,7 +207,7 @@ expanded="Michael.20120314113327.1413,"><vh>@thin ./Simulation/SSS/sss_gen_detec
 <v t="michael.20120223085633.1340"><vh>&lt;&lt; why force_4_port? &gt;&gt;</vh></v>
 </v>
 <v t="michael.20120223085633.1345"><vh>PCFICH</vh></v>
-<v t="michael.20120223085633.1405" a="E"><vh>PDCCH</vh>
+<v t="michael.20120223085633.1405"><vh>PDCCH</vh>
 <v t="michael.20120301114815.1257"><vh>CCE_relative</vh>
 <v t="michael.20120301114815.1379"><vh>init_REG_dict</vh></v>
 <v t="michael.20120301114815.1258"><vh>get_REGs_for_subframe</vh></v>
@@ -190,7 +215,7 @@ expanded="Michael.20120314113327.1413,"><vh>@thin ./Simulation/SSS/sss_gen_detec
 </v>
 <v t="michael.20120301114815.1256"><vh>get_all_REG_in_symbol</vh></v>
 </v>
-<v t="michael.20120223085633.1404" a="E"><vh>PHICH</vh>
+<v t="michael.20120223085633.1404"><vh>PHICH</vh>
 <v t="michael.20120301114815.1390"><vh>phich</vh></v>
 </v>
 <v t="michael.20120223085633.1341"><vh>PSS</vh></v>
@@ -211,7 +236,7 @@ expanded="Michael.20120314113327.1413,"><vh>@thin ./Simulation/SSS/sss_gen_detec
 <v t="michael.20120223085633.1398"><vh>set_REG_num</vh></v>
 <v t="michael.20120223085633.1327"><vh>ts_to_pixel</vh></v>
 </v>
-<v t="michael.20120226084901.1591" a="E"><vh>PHY_Common</vh>
+<v t="michael.20120226084901.1591"><vh>PHY_Common</vh>
 <v t="michael.20120226084901.1595"><vh>16QAM</vh></v>
 <v t="michael.20120226084901.1596"><vh>64QAM</vh></v>
 <v t="michael.20120301114815.1384"><vh>_init_re_size_lattice</vh></v>
@@ -246,17 +271,17 @@ expanded="Michael.20120314113327.1413,"><vh>@thin ./Simulation/SSS/sss_gen_detec
 </v>
 <v t="michael.20120223085633.1293"><vh>Release files</vh>
 <v t="michael.20120226084901.1394"
-expanded="michael.20120223085633.1322,michael.20120223085633.1405,michael.20120223085633.1404,michael.20120226084901.1591,"><vh>@thin ./lte-phy-channel-on-air.py</vh></v>
+expanded="michael.20120223085633.1322,michael.20120223085633.1336,michael.20120223085633.1339,michael.20120223085633.1281,"><vh>@thin ./lte-phy-channel-on-air.py</vh></v>
 </v>
 <v t="michael.20120223085633.1294"><vh>Test files</vh>
 <v t="michael.20120223085633.1301"
-expanded="michael.20120223085633.1322,michael.20120223085633.1405,michael.20120223085633.1404,michael.20120226084901.1591,"><vh>@thin ./test_files/testImageDrawer.py</vh></v>
+expanded="michael.20120223085633.1281,michael.20120223085633.1322,michael.20120223085633.1336,michael.20120223085633.1339,"><vh>@thin ./test_files/testImageDrawer.py</vh></v>
 <v t="michael.20120301114815.1380"
-expanded="michael.20120223085633.1322,michael.20120223085633.1405,michael.20120223085633.1404,michael.20120226084901.1591,"><vh>@thin ./test_files/profile.py</vh></v>
+expanded="michael.20120223085633.1281,michael.20120223085633.1322,michael.20120223085633.1336,michael.20120223085633.1339,"><vh>@thin ./test_files/profile.py</vh></v>
 <v t="michael.20120223085633.1324"
-expanded="michael.20120223085633.1322,michael.20120223085633.1405,michael.20120223085633.1404,michael.20120226084901.1591,"><vh>@thin ./test_files/testTDLTE.py</vh></v>
+expanded="michael.20120223085633.1281,michael.20120223085633.1322,michael.20120223085633.1336,michael.20120223085633.1339,"><vh>@thin ./test_files/testTDLTE.py</vh></v>
 <v t="michael.20120301114815.1318"
-expanded="michael.20120223085633.1322,michael.20120223085633.1405,michael.20120223085633.1404,michael.20120226084901.1591,"><vh>@thin ./test_files/testInit_CCE_for_PDCCH.py</vh></v>
+expanded="michael.20120223085633.1281,michael.20120223085633.1322,michael.20120223085633.1336,michael.20120223085633.1339,"><vh>@thin ./test_files/testInit_CCE_for_PDCCH.py</vh></v>
 </v>
 </v>
 </v>
@@ -828,6 +853,304 @@ def SSS_received_seq_non_coherent_correlation():
     for ref_subframe in (0,):
         for ref_N_ID_cell in (0,):
             SSS_received_seq_non_coherent_correlation_ref(ref_subframe, ref_N_ID_cell, to_draw=True)</t>
+<t tx="Michael.20120319125504.1462">class ConfigException(Exception):
+    
+    def __init__(self, value):
+        self.value = value
+    
+    def __str__(self):
+        return repr(self.value)
+    
+    </t>
+<t tx="Michael.20120319125504.1463">def valid_CFI_range(LTE_mode, is_MBSFN, support_PDSCH, AP_num, positioning_RS_enabled, N_DL_RB, subframe):
+    '''
+    valid_CFI_range(LTE_mode, is_MBSFN, support_PDSCH, positioning_RS_enabled, N_DL_RB): a tuple of valid CFI integers
+        LTE_mode: 'TDD' or 'FDD'
+        is_MBSFN: boolean. Is it a carrier supporting MBSFN?
+        support_PDSCH: boolean. Does this carrier support PDSCH?
+        AP_num: integer. The number of antenna ports configured for CSRS
+        positioning_RS_enabled: boolean. Does positioning Reference Signal configured?
+        N_DL_RB: integer. Number of downlink RBs.
+        subframe: subframe index (0..9)
+    This method is written according to table 6.7-1 of 36.211
+    '''
+    CFI_candidates = tuple()
+    if LTE_mode=='TDD' and subframe in (1,6):
+        if N_DL_RB&gt;10:
+            CFI_candidates = (1,2)
+        elif N_DL_RB&lt;=10:
+            CFI_candidates = (2,)
+    elif is_MBSFN and support_PDSCH and AP_num in (1,2):
+        if N_DL_RB&gt;10:
+            CFI_candidates = (1,2)
+        elif N_DL_RB&lt;=10:
+            CFI_candidates = (2,)
+    elif is_MBSFN and support_PDSCH and AP_num==4:
+        CFI_candidates = (2,)
+    elif not support_PDSCH:
+        CFI_candidates = (0,)
+    elif (not is_MBSFN) and positioning_RS_enabled:
+        if LTE_mode=='TDD' and subframe==6:
+            if N_DL_RB&gt;10:
+                CFI_candidates = (1,2,3)
+            elif N_DL_RB&lt;=10:
+                CFI_candidates = (2,3,4)
+        else:
+            if N_DL_RB&gt;10:
+                CFI_candidates = (1,2,3)
+            elif N_DL_RB&lt;=10:
+                CFI_candidates = (2,3)
+    else:
+        if N_DL_RB&gt;10:
+            CFI_candidates = (1,2,3)
+        elif N_DL_RB&lt;=10:
+            CFI_candidates = (2,3,4)</t>
+<t tx="Michael.20120319125504.1464">def PCFICH_scramble(b, n_s, N_cell_ID):
+    '''
+    input:
+        b: tuple of integer, the 32 bits. Note: len(b)==32 must be true
+        n_s: slot index
+        N_cell_ID: cell ID
+    output: tuple of integer, the scrambled 32 bits
+    '''
+    c_init = (n_s/2+1) * (2*N_cell_ID+1) * (2**9) + N_cell_ID
+    b_ = [0] * 32
+    for i in range(32):
+        b_[i] = (b[i] + c(c_init,i))%2
+    return tuple(b_)</t>
+<t tx="Michael.20120319125504.1465">def PCFICH_modulate(b_):
+    '''
+    input:
+        b_: scrambled PCFICH sequence, 32 bits
+    output:
+        modulated 16 symbols (complex number)
+    '''
+    d = array([0.0 + 1j*0.0] * 16)
+    for i in range(16):
+        d[i] = QPSK( (b_[2*i], b_[2*i+1]) )
+    return d</t>
+<t tx="Michael.20120319125504.1466"></t>
+<t tx="Michael.20120319125504.1467">def BPSK(b):
+    '''
+    input:
+        b: one bit, integer 0 or 1
+    output:
+        one complex symbol
+    '''
+    # one bit modulation
+    return (1/sqrt(2) + 1j*1/sqrt(2), -1/sqrt(2) + 1j*(-1)/sqrt(2))[b]
+</t>
+<t tx="Michael.20120319125504.1468">def QPSK((b0,b1)):
+    '''
+    input:
+        (b0,b1): two element tuple, each represents one bit, must be either 0 or 1
+    output:
+        one complex modulated symbol
+    '''
+    return (complex(1/sqrt(2),1/sqrt(2)), complex(1/sqrt(2),-1/sqrt(2)),
+                        complex(-1/sqrt(2),1/sqrt(2)), complex(-1/sqrt(2),-1/sqrt(2)))[2*b0+b1]
+
+
+</t>
+<t tx="Michael.20120319125504.1469">def sixteenQAM((b0,b1,b2,b3)):
+    '''
+    input:
+        (b0,b1,b2,b3): four element tuple, each represents one bit, must be 0 or 1
+    output:
+        one complex modulated symbol
+    '''
+    return (  complex(1*I, 1*Q),
+                            complex(1*I, 3*Q),
+                            complex(3*I, 1*Q),
+                            complex(3*I, 3*Q),
+                            complex(1*I, -1*Q),
+                            complex(1*I, -3*Q),
+                            complex(3*I, -1*Q),
+                            complex(3*I, -3*Q),
+                            complex(-1*I, 1*Q),
+                            complex(-1*I,3*Q),
+                            complex(-3*I, 1*Q),
+                            complex(-3*I, 3*Q),
+                            complex(-1*I, -1*Q),
+                            complex(1*I, -3*Q),
+                            complex(-3*I, -1*Q),
+                            complex(-3*I, -3*Q),
+    )[b3+2*b2+4*b1+8*b0]
+
+</t>
+<t tx="Michael.20120319125504.1470">def sixtyFourQAM((b0,b1,b2,b3,b4,b5)):
+    '''
+    input:
+        (b0,b1,b2,b3,b4,b5): six-element tuple, each of them represents one bit, must be 0 or 1
+    output:
+        one complex modulated symbol
+    '''
+    #tmp_64QAM = [0] * 64
+    I = Q = 1/sqrt(42)
+    x, y = (    (3,3), (3,1), (1,3), (1,1), (3,5), (3,7), (1,5), (1,7),
+                        (5,3), (5,1), (7,3), (7,1), (5,5), (5,7), (7,5), (7,7),
+                        (3,-3), (3,-1), (1,-3), (1,-1), (3,-5), (3,-7), (1,-5),(1,-7),
+                        (5,-3), (5,-1), (7,-3), (7,-1), (5,-5), (5,-7), (7,-5), (7,-7),
+                        (-3,3), (-3,1), (-1,3), (-1,1), (-3,5), (-3,7), (-1,5), (-1,7),
+                        (-5,3), (-5,1), (-7,3), (-7,1), (-5,5), (-5,7), (-7,5), (-7,7),
+                        (-3,-3), (-3,-1), (-1,-3),(-1,-1), (-3,-5), (-3,-7), (-1,-5), (-1,-7),
+                        (-5,-3), (-5,-1), (-7,-3), (-7,-1), (-5,-5), (-5,-7), (-7,-5), (-7,-7) )[b5+b4*2+b3*4+b2*8+b1*16+b0*32]
+    return x*I+1j*y*Q
+</t>
+<t tx="Michael.20120319125504.1471"></t>
+<t tx="Michael.20120319125504.1472">def layer_map_single_antenna_port(x):
+    '''
+    input:
+        array of symbols
+    output:
+        array of symbols of the same shape
+    '''
+    v = 1
+    M_layer_symb = len(x)
+    return x</t>
+<t tx="Michael.20120319125504.1473">def layer_map_spatial_multiplex(codewords, v):
+    '''
+    input:
+        codewords: array of codewords. codewords[0] is the first codeword, and codewords[1] is the second.
+        v: number of layers, integer (1..4)
+    output:
+        layer mapped matrix: layer_mapped_matrix[0] is the symbol list for the first layer
+    '''
+    result = None
+    num_of_cw = len(codewords)
+    if v==1 and num_of_cw==1:
+        #M_layer_symb = len(codewords[0])
+        result = array( [codewords[0]] )
+        
+    elif v==2 and num_of_cw==2:
+        #M_layer_symb = len(codewords[0])
+        assert( len(codewords[0]) == len(codewords[1]) )
+        result = array(codewords)
+        
+    elif v==2 and num_of_cw==1:
+        M_layer_symb = len(codewords[0])/2
+        x0 = array( [0.0+0.0*1j] * M_layer_symb )
+        x1 = array( [0.0+0.0*1j] * M_layer_symb )
+        for i in range(M_layer_symb):
+            x0[i] = codewords[0][2*i]
+            x1[i] = codewords[0][2*i+1]
+        result = array( [x0, x1] )
+        
+    elif v==3 and num_of_cw==2:
+        assert( len(codewords[0]) == len(codewords[1])/2 )
+        M_layer_symb = len(codewords[0])
+        x0 = array( [0.0+0.0*1j] * M_layer_symb )
+        x1 = array( [0.0+0.0*1j] * M_layer_symb )
+        x2 = array( [0.0+0.0*1j] * M_layer_symb )
+        for i in range(M_layer_symb):
+            x0[i] =codewords[0][i]
+            x1[i] = codewords[1][2*i]
+            x2[i] = codewords[1][2*i+1]
+        result = array( [x0, x1, x2] )
+    
+    elif v==4 and num_of_cw==2:
+        assert( len(codewords[0]) == len(codewords[1]) )
+        M_layer_symb = len(codewords[0])/2
+        x0 = array( [0.0+0.0*1j] * M_layer_symb )
+        x1 = array( [0.0+0.0*1j] * M_layer_symb )
+        x2 = array( [0.0+0.0*1j] * M_layer_symb )
+        x3 = array( [0.0+0.0*1j] * M_layer_symb )
+        for i in range(M_layer_symb):
+            x0[i] = codewords[0][2*i]
+            x1[i] = codewords[0][2*i+1]
+            x2[i] = codewords[1][2*i]
+            x3[i] = codewords[1][2*i+1]
+        result = array( [x0, x1, x2, x3] )
+    
+    return result</t>
+<t tx="Michael.20120319125504.1474"></t>
+<t tx="Michael.20120319125504.1475">def layer_map_transmit_diversity(codewords, v):
+    '''
+    input:
+        codewords: array of codewords. codewords[0] is the first codeword, and codewords[1] is the second.
+        v: number of layers, integer 2 or 4
+    output:
+        layer mapped matrix: layer_mapped_matrix[0] is the symbol list for the first layer
+    '''
+    result = None
+    num_of_cw = len(codewords)
+    assert( num_of_cw==1 )
+        
+    if v==2:
+        M_layer_symb = len(codewords[0])/2
+        x0 = array( [0.0+0.0*1j] * M_layer_symb )
+        x1 = array( [0.0+0.0*1j] * M_layer_symb )
+        for i in range(M_layer_symb):
+            x0[i] = codewords[0][2*i]
+            x1[i] = codewords[0][2*i+1]
+        result = array( [x0, x1] )
+    
+    elif v==4:
+        if len(codewords[0]) % 4 == 0:
+            M_layer_symb = len(codewords[0])/4
+            tmp_cw = codewords[0]
+        else:
+            M_layer_symb = (len(codewords[0])+2)/4
+            tmp_cw = array( [0.0+0.0*1j] * (len(codewords[0]) + 2) )
+            tmp_cw[:len(codewords[0])] = codewords[0]
+        x0 = array( [0.0+0.0*1j] * M_layer_symb )
+        x1 = array( [0.0+0.0*1j] * M_layer_symb )
+        x2 = array( [0.0+0.0*1j] * M_layer_symb )
+        x3 = array( [0.0+0.0*1j] * M_layer_symb )
+        for i in range(M_layer_symb):
+            x0[i] = tmp_cw[4*i]
+            x1[i] = tmp_cw[4*i+1]
+            x2[i] = tmp_cw[4*i+2]
+            x3[i] = tmp_cw[4*i+3]
+        result = array( [x0, x1, x2, x3] )
+    
+    return result</t>
+<t tx="Michael.20120319125504.1476"></t>
+<t tx="Michael.20120319125504.1477">def precode_single_antenna_port(layer_mapped_matrix):
+    '''
+    input:
+        layer_mapped_matrix: matrix result of layer mapping
+    output:
+        precoded matrix. precoded_matrix[0] is the result for antenna port 0.
+    '''
+    #M_layer_symb = len(layer_mapped_matrix[0])
+    #M_ap_symb = M_layer_symb
+    return layer_mapped_matrix</t>
+<t tx="Michael.20120319125504.1478"></t>
+<t tx="Michael.20120319125504.1479"></t>
+<t tx="Michael.20120319125504.1480">def get_codebook_for_precoding( ap_num, codebook_index, v ):
+    '''
+    input:
+        ap_num: number of transmiting antennas
+        codebook_index: Codebook index
+        v: number of layers
+    output:
+        an array representing selected codebook
+    '''
+    lte_assert(ap_num in (2,4), 'Precoding codebook is only valid for transmission on two or four antenna ports.' )
+    result = None
+    if ap_num==2:
+        lte_assert(codebook_index in (0,1,2,3), 'Codebook index (%s) out of range. Please refer to 36.211 table 6.3.4.2.3-1 in section 6.3.4.2.3.'%codebook_index)
+        if v==1:
+            x, y =( (1,1), (1,-1), (1,1j), (1,-1j) )[codebook_index]
+            result = 1/sqrt(2) * array( [[x], [y]] )
+        else v==2:
+            lte_assert(codebook_index!=3, "Codebook index (%s) for %s layers isn't defined. Please refer to 36.211 table 6.3.4.2.3-1 in section 6.3.4.2.3."%(codebook_index, v))
+            x1, x2, y1, y2 = ( (1/sqrt(2),0,0,1/sqrt(2)), (0.5,0.5,0.5,-0.5), (0.5,0.5,0.5j,-0.5j) )[codebook_index]
+            result = array( [[x1,x2], [y1,y2]] )
+    else:   # ap_num==4
+        pass</t>
+<t tx="Michael.20120319125504.1481">class LteException(Exception):
+    
+    def __init__(self, value):
+        self.value = value
+    
+    def __str__(self):
+        return repr(self.value)
+    
+def lte_assert(condition, a_string):
+    if not condition:
+        raise LteException(a_string)</t>
 <t tx="michael.20120223085633.1280">@language python
 @tabwidth -4
 @encoding utf-8
@@ -2276,9 +2599,16 @@ def init_REG_RE2index_in_subframe(self):
     '''
     Valicate configuration. This method should be called after config has been read in from the file.
     '''
-    
-    if len(self.config['RA_PREAMBLE_MAPPING'][self.config['PRACH_Configuration_Index'],self.config['UL_DL_config']])==0:
-        print "PRACH configuration is wrong!"
+    if self.config['LTE_Mode'] == 'TDD':
+        # configuration validation for TDD
+        if len(self.config['RA_PREAMBLE_MAPPING'][self.config['PRACH_Configuration_Index'],self.config['UL_DL_config']])==0:
+            prach_config_wrong_str = '''
+            PRACH resource configuration is:
+                PRACH configuration Index = %s
+                UL/DL configuration = %s
+            And according to table 5.7.1-4 in 36.211 this configuration is N/A.
+            '''%(self.config['PRACH_Configuration_Index'], self.config['UL_DL_config'])
+            raise ConfigException(prach_config_wrong_str)
 </t>
 <t tx="michael.20120226084901.1590">def _draw_legend(self):
     
@@ -2950,7 +3280,7 @@ def get_REG_in_RB_symbol_opti(n_PRB, N_RB_sc, l, CSRS_AP_num, DL_CP_type):
     return REGs</t>
 <t tx="michael.20120305092148.1279">def get_CSRS_REs_in_slot(n_s, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_DL_symb):
     '''
-    get_CSRS_in_slot_RB_symbol(n_s, n_PRB, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_DL_symb): tuple of CSRS REs in the specified symbol of RB.
+    get_CSRS_REs_in_slot(n_s, antenna_port, N_cell_ID, N_maxDL_RB, N_DL_RB, N_DL_symb): tuple of CSRS REs in the specified symbol of RB.
     n_s: slot index
     antenna_port: antenna port for CSRS
     N_cell_ID: cell ID

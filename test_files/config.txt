@@ -5,6 +5,7 @@
 
 
 ##############################	Basic LTE System Configuration  #####################################
+LTE_Mode	TDD
 sys_BW	20	system bandwidth is 20MHz
 CP_UL_type	0	Uplink CP type: 0 for normal£¬1 for extended
 CP_DL_type	0	Downlink CP type: 0 for normal£¬1 for extended

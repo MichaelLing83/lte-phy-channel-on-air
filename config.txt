@@ -5,6 +5,7 @@
 
 
 ##############################	Basic LTE System Configuration  #####################################
+LTE_Mode	TDD
 sys_BW	20	system bandwidth is 20MHz
 CP_UL_type	0	Uplink CP type: 0 for normal£¬1 for extended
 CP_DL_type	0	Downlink CP type: 0 for normal£¬1 for extended
@@ -12,11 +13,11 @@ UL_DL_config	1	TDD UL/DL configuration, e.g. 1 is DSUUDDSUUD
 N_RB_sc	12	Number of subcarriers that one RB occupies (12 for 15KHz subcarrier)
 N_cell_ID_1	0	cell ID group
 N_cell_ID_2	0	cell ID index
-port_num	4	system antenna ports configuration
+port_num	2	system antenna ports configuration
 N_g 1  it's a index, interpreted as the index of list [1/6,1/2,1,2]
 CFI 2	Control Format Indicator
-CFI_sequence 3100331003
-PHICH_duration 1  0 for normal duration, 1 for extended duration
+CFI_sequence 3100231002
+PHICH_duration 0  0 for normal duration, 1 for extended duration
 special_subframe_config 5  Refer to table 4.2-1 of 36.211
 n_RA_PRBoffset	2	this is the prachFrequencyOffset
 PRACH_Configuration_Index	57

@@ -21,9 +21,16 @@ class Config:
         '''
         Valicate configuration. This method should be called after config has been read in from the file.
         '''
-        
-        if len(self.config['RA_PREAMBLE_MAPPING'][self.config['PRACH_Configuration_Index'],self.config['UL_DL_config']])==0:
-            print "PRACH configuration is wrong!"
+        if self.config['LTE_Mode'] == 'TDD':
+            # configuration validation for TDD
+            if len(self.config['RA_PREAMBLE_MAPPING'][self.config['PRACH_Configuration_Index'],self.config['UL_DL_config']])==0:
+                prach_config_wrong_str = '''
+                PRACH resource configuration is:
+                    PRACH configuration Index = %s
+                    UL/DL configuration = %s
+                And according to table 5.7.1-4 in 36.211 this configuration is N/A.
+                '''%(self.config['PRACH_Configuration_Index'], self.config['UL_DL_config'])
+                raise ConfigException(prach_config_wrong_str)
     #@+node:michael.20120223085633.1311: *3* _get_RA_PREAMBLE_MAPPING
     def _get_RA_PREAMBLE_MAPPING(self):
         # key: (PRACH_configuration_index, UL/DL_configuration)
@@ -2058,6 +2065,16 @@ class Point:
         return "%s, %s" % (self.x,self.y)
 
 Size = Point
+#@+node:Michael.20120319125504.1462: *3* class ConfigException
+class ConfigException(Exception):
+    
+    def __init__(self, value):
+        self.value = value
+    
+    def __str__(self):
+        return repr(self.value)
+    
+    
 #@-others
 #@-others
 
