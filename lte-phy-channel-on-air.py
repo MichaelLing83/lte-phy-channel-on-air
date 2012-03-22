@@ -557,6 +557,11 @@ class Config:
     def _get_config(self, filename):
         #filename = self.dir + filename
         config = self._get_base_config(filename)
+        
+        if config['LTE_Mode'] == 0:
+            config['LTE_Mode'] = 'FDD'
+        elif config['LTE_Mode'] == 1:
+            config['LTE_Mode'] = 'TDD'
 
         config['draw_offset'] = Point(config['draw_offset_x'],config['draw_offset_y'])
 

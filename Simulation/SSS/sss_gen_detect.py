@@ -505,7 +505,7 @@ def SSS_received_seq_non_coherent_correlation_ref(ref_subframe, ref_N_ID_cell, t
             corr_dict[(subframe,N_ID_cell)] = array( [0] *N )
             for i in arange(len(cs_list)):
                 tmp_sss_received_re_array = map_fft_result_to_RE_IQ_array(roll(sss_received_IQ_dict[(subframe,N_ID_cell)], i))
-                tmp_sss_received_seq = get_sss_seq_from_RE_symbol_array(tmp_sss_received_re_array, N_RB_sc, adjust_method='+1-1')
+                tmp_sss_received_seq = get_sss_seq_from_RE_symbol_array(tmp_sss_received_re_array, N_RB_sc, do_adjust=False, adjust_method='+1-1')
                 corr_dict[(subframe,N_ID_cell)][i] = abs(correlate(sss_sent_seq, tmp_sss_received_seq)[0])
             max_dict[(subframe,N_ID_cell)] = find_max(corr_dict[(subframe,N_ID_cell)])
     # normalize the correlation results

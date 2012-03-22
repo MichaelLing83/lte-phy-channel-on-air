@@ -1377,7 +1377,7 @@ def z_fft_of_ZC():
 
 #@-others
 
-test_enabling_bits = 0b100000000000
+test_enabling_bits = 0b111111111111
 
 # 01. PSS spectrum before OFDM generation
 if test_enabling_bits & (1<<0):
